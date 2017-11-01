@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;inet-framework-simulte-afd56c4/src/stack/phy/layer/Copy of LtePhyUe.cc&apos; to &apos;LtePhyUe.cc_old&apos;" description="Rename resource &apos;Copy of LtePhyUe.cc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/stack/phy/layer/Copy of LtePhyUe.cc" name="LtePhyUe.cc_old" stamp="1503684501200" updateReferences="true"/>
+</session>

@@ -1,0 +1,12 @@
+#ifndef __INET_IDEALENERGYSTORAGE_H
+#define __INET_IDEALENERGYSTORAGE_H
+
+#include "inet/power/consumer/AlternatingEnergyConsumer.h"
+
+class AlternatingEnergyConsumerSimuLTE : public AlternatingEnergyConsumer{
+    protected:
+        bool isTransmitting;
+
+    protected:
+
+};

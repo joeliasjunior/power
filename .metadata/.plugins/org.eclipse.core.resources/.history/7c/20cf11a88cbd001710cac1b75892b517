@@ -1,0 +1,21 @@
+#include "corenetwork/nodes/power.h"
+
+namespace inet {
+
+namespace power {
+
+void AlternatingEnergyConsumerSimuLTE::updatePowerConsumption(){
+    if(isTransmitting){
+        powerConsumption = isSleeping ? W(0)+W(trasnmittingPowerConsumption) : W(powerConsumption)+W(trasnmittingPowerConsumption);
+    }else{
+        powerConsumption = isSleeping ? W(0) : W(par("powerConsumption"));
+    }
+
+    energySource->setPowerConsumption(energyConsumerId, powerConsumption);
+    emit(IEnergySource::powerConsumptionChangedSignal, powerConsumption.get());
+
+}
+
+} // namespace power
+
+} // namespace inet

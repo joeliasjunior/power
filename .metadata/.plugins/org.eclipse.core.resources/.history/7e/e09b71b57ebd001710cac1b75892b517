@@ -1,0 +1,5 @@
+#include "inet/power/consumer/AlternatingEnergyConsumer.h"
+
+class AlternatingEnergyConsumerSimuLTE : public AlternatingEnergyConsumer{
+
+};

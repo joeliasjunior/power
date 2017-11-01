@@ -1,0 +1,18 @@
+#ifndef __INET_ALTERNATINGENERGYCONSUMERSIMULTE_H
+#define __INET_ALTERNATINGENERGYCONSUMERSIMULTE_H
+
+#include "inet/power/contract/IEnergyConsumer.h"
+#include "inet/power/contract/IEnergySource.h"
+
+#include "inet/power/consumer/AlternatingEnergyConsumer.h"
+
+class INET_API AlternatingEnergyConsumerSimuLTE : public AlternatingEnergyConsumer {
+    protected:
+        bool isTransmitting;
+        W trasnmittingPowerConsumption;
+
+    protected:
+        virtual void updatePowerConsumption() override;
+};
+
+#endif

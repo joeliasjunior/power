@@ -1,0 +1,19 @@
+#ifndef __INET_IDEALENERGYSTORAGE_H
+#define __INET_IDEALENERGYSTORAGE_H
+
+#include "inet/power/consumer/AlternatingEnergyConsumer.h"
+
+class AlternatingEnergyConsumerSimuLTE : public AlternatingEnergyConsumer{
+    protected:
+        bool isTransmitting;
+        bool isSleeping;
+        int energyConsumerId;
+        IEnergySource *energySource;
+        W powerConsumption;
+        W trasnmittingPowerConsumption;
+
+    protected:
+        virtual void updatePowerConsumption() override;
+};
+
+#endif

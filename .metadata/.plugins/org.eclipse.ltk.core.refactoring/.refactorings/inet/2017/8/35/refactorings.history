@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;EnergySourceBase.ned&apos; to &apos;base&apos;" description="Move &apos;EnergySourceBase.ned&apos; to &apos;base&apos;" destination="src/inet/power/base" element1="src/inet/power/consumer/EnergySourceBase.ned" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1504043354784" updateReferences="true"/>
+</session>
