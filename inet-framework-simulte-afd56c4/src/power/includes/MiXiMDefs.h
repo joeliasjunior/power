@@ -20,6 +20,7 @@
 
 #include <omnetpp.h>
 #include "miximkerneldefs.h"
+#include "phyPER.h"
 
 #if defined(MIXIM_EXPORT)
 #  define MIXIM_API OPP_DLLEXPORT

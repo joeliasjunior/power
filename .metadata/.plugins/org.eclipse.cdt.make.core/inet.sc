@@ -2,16 +2,16 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="org.omnetpp.cdt.gnu.config.debug.229043752">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="/usr/include/c++/5"/>
-<includePath path="/usr/include/x86_64-linux-gnu/c++/5"/>
-<includePath path="/usr/include/c++/5/backward"/>
-<includePath path="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+<includePath path="/usr/include/c++/5" removed="true"/>
+<includePath path="/usr/include/x86_64-linux-gnu/c++/5" removed="true"/>
+<includePath path="/usr/include/c++/5/backward" removed="true"/>
+<includePath path="/usr/lib/gcc/x86_64-linux-gnu/5/include" removed="true"/>
 <includePath path="/usr/include/c++/4.9" removed="true"/>
 <includePath path="/usr/include/x86_64-linux-gnu/c++/4.9" removed="true"/>
 <includePath path="/usr/include/c++/4.9/backward" removed="true"/>
 <includePath path="/usr/lib/gcc/x86_64-linux-gnu/4.9/include" removed="true"/>
 <includePath path="/usr/local/include"/>
-<includePath path="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+<includePath path="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" removed="true"/>
 <includePath path="/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed" removed="true"/>
 <includePath path="/usr/include/x86_64-linux-gnu"/>
 <includePath path="/usr/include"/>

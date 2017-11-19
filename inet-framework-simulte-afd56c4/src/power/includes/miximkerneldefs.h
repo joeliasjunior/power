@@ -25,13 +25,13 @@
 #define MIXIM_INET
 #endif
 
-#define MIXIM_SIGNAL_PACKET_NAME          "org.mixim.modules.utility.packet"
-#define MIXIM_SIGNAL_UWBIRPACKET_NAME     "org.mixim.modules.utility.uwbirpacket"
-#define MIXIM_SIGNAL_DROPPEDPACKET_NAME   "org.mixim.modules.utility.droppedpacket"
-#define MIXIM_SIGNAL_PASSEDMSG_NAME       "org.mixim.base.utils.passedmsg"
-#define MIXIM_SIGNAL_HOSTSTATE_NAME       "org.mixim.base.utils.hoststate"
+#define MIXIM_SIGNAL_PACKET_NAME          "lte.power.modules.utility.packet"
+#define MIXIM_SIGNAL_UWBIRPACKET_NAME     "lte.power.modules.utility.uwbirpacket"
+#define MIXIM_SIGNAL_DROPPEDPACKET_NAME   "lte.power.modules.utility.droppedpacket"
+#define MIXIM_SIGNAL_PASSEDMSG_NAME       "lte.power.base.utils.passedmsg"
+#define MIXIM_SIGNAL_HOSTSTATE_NAME       "lte.power.base.utils.hoststate"
 #define MIXIM_SIGNAL_MOBILITY_CHANGE_NAME "mobilityStateChanged"
-#define MIXIM_SIGNAL_BATTERY_CHANGE_NAME  "org.mixim.modules.power.battery.batterystate"
-#define MIXIM_SIGNAL_MOBANMSG_NAME        "org.mixim.modules.utility.bbmobanmessage"
+#define MIXIM_SIGNAL_BATTERY_CHANGE_NAME  "lte.power.modules.power.battery.batterystate"
+#define MIXIM_SIGNAL_MOBANMSG_NAME        "lte.power.modules.utility.bbmobanmessage"
 
 #endif

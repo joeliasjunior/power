@@ -1,42 +1,49 @@
-12:12:13 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j8 all 
+21:02:03 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
+make MODE=debug CONFIGNAME=gcc-debug -j4 all 
 cd src && make
 make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-stack/phy/ChannelModel/LteRealisticChannelModel.cc
-stack/phy/feedback/LteDlFeedbackGenerator.cc
-stack/phy/layer/LtePhyUeD2D.cc
-stack/phy/layer/LtePhyUe.cc
-stack/phy/ChannelModel/LteRealisticChannelModel.cc: In member function ‘virtual std::vector<double> LteRealisticChannelModel::getSINR(LteAirFrame*, UserControlInfo*)’:
-stack/phy/ChannelModel/LteRealisticChannelModel.cc:712:13: warning: variable ‘eNbType’ set but not used [-Wunused-but-set-variable]
-     EnbType eNbType;
-             ^
-stack/phy/ChannelModel/LteRealisticChannelModel.cc: In member function ‘double LteRealisticChannelModel::computeExtCellPathLoss(double, MacNodeId)’:
-stack/phy/ChannelModel/LteRealisticChannelModel.cc:2258:16: warning: unused variable ‘mean’ [-Wunused-variable]
-         double mean = 0;
-                ^
-stack/phy/ChannelModel/LteRealisticChannelModel.cc:2263:16: warning: unused variable ‘time’ [-Wunused-variable]
-         double time = 0;
-                ^
-stack/phy/ChannelModel/LteRealisticChannelModel.cc:2264:16: warning: unused variable ‘space’ [-Wunused-variable]
-         double space = 0;
-                ^
-stack/phy/ChannelModel/LteRealisticChannelModel.cc:2221:12: warning: unused variable ‘movement’ [-Wunused-variable]
-     double movement = .0;
-            ^
-stack/phy/ChannelModel/LteRealisticChannelModel.cc:2222:12: warning: variable ‘speed’ set but not used [-Wunused-but-set-variable]
-     double speed = .0;
-            ^
-stack/phy/ChannelModel/LteRealisticChannelModel.cc: In member function ‘bool LteRealisticChannelModel::computeInCellD2DInterference(MacNodeId, MacNodeId, inet::Coord, MacNodeId, inet::Coord, bool, std::vector<double>*, Direction)’:
-stack/phy/ChannelModel/LteRealisticChannelModel.cc:2424:18: warning: variable ‘ltePhy_destId’ set but not used [-Wunused-but-set-variable]
-     LtePhyBase * ltePhy_destId;
-                  ^
-In file included from stack/phy/ChannelModel/LteRealisticChannelModel.cc:17:0:
-stack/phy/layer/LtePhyUe.h: In member function ‘unsigned int LtePhyUe::getUsedRbs(Remote, Band)’:
-stack/phy/layer/LtePhyUe.h:157:5: warning: control reaches end of non-void function [-Wreturn-type]
-     }
-     ^
-Creating shared library: ../out/gcc-debug/src/libinet-framework-simulte-afd56c4.so
+power/BaseBattery.cc
+power/includes/NetwToMacControlInfo.cc
+power/SimpleBattery.cc
+power/BatteryStats.cc
+In file included from power/includes/NetwToMacControlInfo.cc:16:0:
+power/includes/NetwToMacControlInfo.h:27:27: fatal error: SimpleAddress.h: No such file or directory
+ #include "SimpleAddress.h"
+                           ^
+compilation terminated.
+Makefile:349: recipe for target '../out/gcc-debug/src/power/includes/NetwToMacControlInfo.o' failed
+make[1]: *** [../out/gcc-debug/src/power/includes/NetwToMacControlInfo.o] Error 1
+make[1]: *** Waiting for unfinished jobs....
+In file included from power/includes/phyPER.h:25:0,
+                 from power/includes/MiXiMDefs.h:23,
+                 from power/BatteryStats.h:18,
+                 from power/BatteryStats.cc:29:
+power/includes/Packet.h:35:25: error: expected initializer before ':' token
+ class MIXIM_API  Packet : public cObject
+                         ^
+In file included from power/includes/phyPER.h:25:0,
+                 from power/includes/MiXiMDefs.h:23,
+                 from power/SimpleBattery.h:18,
+                 from power/SimpleBattery.cc:20:
+power/includes/Packet.h:35:25: error: expected initializer before ':' token
+ class MIXIM_API  Packet : public cObject
+                         ^
+In file included from power/includes/phyPER.h:25:0,
+                 from power/includes/MiXiMDefs.h:23,
+                 from power/BaseBattery.h:6,
+                 from power/BaseBattery.cc:1:
+power/includes/Packet.h:35:25: error: expected initializer before ':' token
+ class MIXIM_API  Packet : public cObject
+                         ^
+Makefile:349: recipe for target '../out/gcc-debug/src/power/BatteryStats.o' failed
+make[1]: *** [../out/gcc-debug/src/power/BatteryStats.o] Error 1
+Makefile:349: recipe for target '../out/gcc-debug/src/power/SimpleBattery.o' failed
+make[1]: *** [../out/gcc-debug/src/power/SimpleBattery.o] Error 1
+Makefile:349: recipe for target '../out/gcc-debug/src/power/BaseBattery.o' failed
 make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
+Makefile:2: recipe for target 'all' failed
+make[1]: *** [../out/gcc-debug/src/power/BaseBattery.o] Error 1
+make: *** [all] Error 2
 
-12:12:21 Build Finished (took 8s.947ms)
+21:02:06 Build Finished (took 2s.677ms)
 

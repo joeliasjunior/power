@@ -1,5 +1,0 @@
-#include "power.h"
-
-class AlternatingEnergyConsumerSimuLTE : public AlternatingEnergyConsumer{
-
-};
