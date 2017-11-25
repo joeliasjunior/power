@@ -871,8 +871,8 @@
 <includePath path="/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src/inet/applications/dhcp"/>
 <includePath path="/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src/inet/applications/contract"/>
 <includePath path="/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src/inet/applications/base"/>
-<includePath path="/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src/power"/>
-<includePath path="/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src/power/includes"/>
+<includePath path="/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src/power" removed="true"/>
+<includePath path="/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src/power/includes" removed="true"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__cplusplus=199711L"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>

@@ -1,49 +1,8 @@
-21:02:03 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
+20:47:36 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
 make MODE=debug CONFIGNAME=gcc-debug -j4 all 
 cd src && make
 make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-power/BaseBattery.cc
-power/includes/NetwToMacControlInfo.cc
-power/SimpleBattery.cc
-power/BatteryStats.cc
-In file included from power/includes/NetwToMacControlInfo.cc:16:0:
-power/includes/NetwToMacControlInfo.h:27:27: fatal error: SimpleAddress.h: No such file or directory
- #include "SimpleAddress.h"
-                           ^
-compilation terminated.
-Makefile:349: recipe for target '../out/gcc-debug/src/power/includes/NetwToMacControlInfo.o' failed
-make[1]: *** [../out/gcc-debug/src/power/includes/NetwToMacControlInfo.o] Error 1
-make[1]: *** Waiting for unfinished jobs....
-In file included from power/includes/phyPER.h:25:0,
-                 from power/includes/MiXiMDefs.h:23,
-                 from power/BatteryStats.h:18,
-                 from power/BatteryStats.cc:29:
-power/includes/Packet.h:35:25: error: expected initializer before ':' token
- class MIXIM_API  Packet : public cObject
-                         ^
-In file included from power/includes/phyPER.h:25:0,
-                 from power/includes/MiXiMDefs.h:23,
-                 from power/SimpleBattery.h:18,
-                 from power/SimpleBattery.cc:20:
-power/includes/Packet.h:35:25: error: expected initializer before ':' token
- class MIXIM_API  Packet : public cObject
-                         ^
-In file included from power/includes/phyPER.h:25:0,
-                 from power/includes/MiXiMDefs.h:23,
-                 from power/BaseBattery.h:6,
-                 from power/BaseBattery.cc:1:
-power/includes/Packet.h:35:25: error: expected initializer before ':' token
- class MIXIM_API  Packet : public cObject
-                         ^
-Makefile:349: recipe for target '../out/gcc-debug/src/power/BatteryStats.o' failed
-make[1]: *** [../out/gcc-debug/src/power/BatteryStats.o] Error 1
-Makefile:349: recipe for target '../out/gcc-debug/src/power/SimpleBattery.o' failed
-make[1]: *** [../out/gcc-debug/src/power/SimpleBattery.o] Error 1
-Makefile:349: recipe for target '../out/gcc-debug/src/power/BaseBattery.o' failed
 make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-Makefile:2: recipe for target 'all' failed
-make[1]: *** [../out/gcc-debug/src/power/BaseBattery.o] Error 1
-make: *** [all] Error 2
 
-21:02:06 Build Finished (took 2s.677ms)
+20:47:37 Build Finished (took 133ms)
 

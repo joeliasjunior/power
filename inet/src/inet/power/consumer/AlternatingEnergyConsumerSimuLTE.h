@@ -5,6 +5,8 @@
 //#include "inet/power/contract/IEnergySource.h"
 
 #include "inet/power/consumer/AlternatingEnergyConsumer.h"
+#include <stdio.h>
+#include "inet/common/NotifierConsts.h"
 
 namespace inet {
 
@@ -12,8 +14,10 @@ namespace power {
 
 class AlternatingEnergyConsumerSimuLTE : public AlternatingEnergyConsumer {
     protected:
-        bool isTransmitting=false;
+        bool isTransmitting=NF_INTERFACE_STATE_CHANGED;
+        //bool isTransmitting=true;
         W transmittingPowerConsumption;
+        W tmp1;
 
     protected:
         virtual void updatePowerConsumption() override;

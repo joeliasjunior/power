@@ -9,6 +9,7 @@
 		<item value="227191" key="searchFlags"/>
 		<item value="false" key="caseSensitive"/>
 		<list key="previousPatterns">
+			<item value="NF_INTERFACE_STATE_CHANGED"/>
 			<item value="statebased"/>
 			<item value="iradio"/>
 			<item value="useBattery"/>
@@ -20,11 +21,11 @@
 		<item value="174" key="size.height"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
-		<item value="444" key="DIALOG_WIDTH"/>
+		<item value="388" key="DIALOG_WIDTH"/>
 		<item value="224" key="DIALOG_Y_ORIGIN"/>
-		<item value="457" key="DIALOG_HEIGHT"/>
+		<item value="487" key="DIALOG_HEIGHT"/>
 		<item value="705" key="DIALOG_X_ORIGIN"/>
-		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="1|Noto Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>
