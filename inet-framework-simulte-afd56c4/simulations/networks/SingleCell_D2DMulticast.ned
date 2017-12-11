@@ -21,6 +21,41 @@ import lte.corenetwork.nodes.eNodeB;
 import lte.world.radio.LteChannelControl;
 import lte.epc.PgwStandardSimplified;
 
+////////////// JOELIAS //////////////
+import inet.common.lifecycle.LifecycleController;   
+import inet.environment.common.PhysicalEnvironment;
+import inet.node.inet.INetworkNode;
+import inet.common.figures.DelegateSignalConfigurator;
+import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.node.inet.INetworkNode;
+import inet.physicallayer.contract.packetlevel.IRadioMedium;
+import inet.visualizer.integrated.IntegratedCanvasVisualizer;
+
+import inet.power.base.EnergyConsumerBase;
+import inet.power.base.EnergyGeneratorBase;
+import inet.power.base.EnergySinkBase;
+import inet.power.base.EnergySourceBase;
+import inet.power.base.EnergyStorageBase;
+import inet.power.consumer.AlternatingEnergyConsumer;
+import inet.power.contract.*;
+import inet.power.generator.*;
+import inet.power.storage.*;
+import inet.node.inet.NodeBase;
+
+import inet.common.lifecycle.NodeStatus;
+import inet.common.packet.PcapRecorder;
+import inet.linklayer.contract.IExternalNic;
+import inet.linklayer.contract.ITunNic;
+import inet.linklayer.contract.IWiredNic;
+import inet.linklayer.contract.IWirelessNic;
+import inet.linklayer.loopback.LoopbackInterface;
+import inet.mobility.contract.IMobility;
+import inet.networklayer.contract.IRoutingTable;
+import inet.networklayer.common.InterfaceTable;
+import inet.networklayer.contract.INetworkLayer;
+import inet.power.contract.IEnergyStorage;
+import inet.power.contract.IEnergyGenerator;
+////////////// JOELIAS //////////////
 
 network SingleCell_D2DMulticast
 {
@@ -61,6 +96,13 @@ network SingleCell_D2DMulticast
         ueD2D[numUeD2D]: Ue {
             @display("p=477,367");
         }
+        
+        	///// JOELIAS /////
+        lifecycleController: LifecycleController {
+            @display("p=50,225");
+        }
+        	///// JOELIAS /////
+        	
     connections:
         server.pppg++ <--> Eth10G <--> router.pppg++;
         router.pppg++ <--> Eth10G <--> pgw.filterGate;

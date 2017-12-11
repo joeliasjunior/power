@@ -1,0 +1,143 @@
+[General]
+image-path=../../images
+tkenv-plugin-path = ../../../inet/etc/plugins
+output-scalar-file-append = false
+debug-on-errors = false
+tkenv-default-config = 
+sim-time-limit=20s
+warmup-period=0s
+repeat = 1
+**.routingRecorder.enabled = false
+
+############### Statistics ##################
+output-scalar-file = ${resultdir}/${configname}/${repetition}.sca
+output-vector-file = ${resultdir}/${configname}/${repetition}.vec
+seed-set = ${repetition}
+**.vector-recording = true
+
+################ Channel parameters #####################
+**.channelControl.pMax = 10W
+**.channelControl.alpha = 1.0
+**.channelControl.carrierFrequency = 2100e+6Hz
+
+################ PhyLayer parameters #####################
+**.nic.phy.channelModel=xmldoc("config_channel.xml")
+**.feedbackComputation = xmldoc("config_channel.xml")
+
+################ Mobility parameters #####################
+**.mobility.constraintAreaMinZ = 0m
+**.mobility.constraintAreaMaxZ = 0m
+
+################# Deployer parameters #######################
+# UEs attached to eNB
+**.fbDelay = 1
+
+############### AMC MODULE PARAMETERS ###############
+**.rbAllocationType = "localized"
+**.deployer.numRbDl = 50
+**.deployer.numRbUl = 50
+**.numBands = 50
+
+
+############### Config "D2DMulticast-1to2" ###############
+# In this configuration, a transmitting UE sends periodic alert messages to two 
+# users, located close to it.
+#
+[Config D2DMulticast-1to2]
+network=lte.simulations.networks.SingleCell_D2DMulticast
+
+### eNodeBs configuration ###
+*.eNodeB.mobility.initFromDisplayString = true
+*.eNodeB.mobility.initialX = 300m
+*.eNodeB.mobility.initialY = 300m
+
+### UEs configuration ###
+*.numUeCell = 0
+*.numUeD2D = 4
+
+*.ue*[*].macCellId = 1
+*.ue*[*].masterId = 1
+*.ue*[*].mobility.initFromDisplayString = false
+
+# Place D2D endpoints far from the eNodeB (~50m) and close to each other (20m)
+*.ueD2D[*].mobility.initialY = 350m  #original 350
+*.ueD2D[0].mobility.initialX = 50m  #original 290
+*.ueD2D[1].mobility.initialX = 150m
+*.ueD2D[2].mobility.initialX = 250m
+*.ueD2D[3].mobility.initialX = 350m  
+#*.ueD2D[4].mobility.initialX = 400m  #original 310
+#*.ueD2D[5].mobility.initialX = 500m
+#*.ueD2D[6].mobility.initialX = 600m
+#*.ueD2D[7].mobility.initialX = 700m
+
+### Traffic configuration ###
+*.ueD2D[*].numUdpApps = 1
+
+# One-to-Many traffic between UEs (ueD2D[0] --> ueD2DRx[1..2])
+# Transmitter
+*.ueD2DTx[0].udpApp[*].typename = "VoIPSender"
+*.ueD2DTx[0].udpApp[*].localPort = 3088+ancestorIndex(0) 
+*.ueD2DTx[0].udpApp[*].startTime = uniform(0s,0.02s)
+*.ueD2DTx[0].udpApp[*].destAddress = "ueD2DRx[0]"
+*.ueD2DTx[0].udpApp[*].destPort = 1000
+# Receiver
+*.ueD2DRx[0].udpApp[*].typename = "VoIPReceiver"
+*.ueD2DRx[0].udpApp[*].localPort = 1000
+
+# Enable D2D for the eNodeB and the UEs involved in direct communications
+*.eNodeB.d2dCapable = true
+*.ueD2D*[*].d2dCapable = true
+**.amcMode = "D2D"
+
+# --- Set the D2D peering capabilities ---#
+# For each D2D-capable UE, write a list of UEs (separated by blank spaces) representing the possible peering UEs. 
+# Note that this relationship is unidirectional. Here, ueD2DTx[0] --> ueD2DRx[0]
+#*.ueD2DTx[0].nic.d2dPeerAddresses = "ueD2DRx[0]"
+*.ueD2DTx[0].nic.d2dPeerAddresses = "ueD2DTx[1]"
+*.ueD2DTx[1].nic.d2dPeerAddresses = "ueD2DTx[0] ueD2DTx[2]"
+*.ueD2DTx[2].nic.d2dPeerAddresses = "ueD2DTx[1] ueD2DTx[3]"
+*.ueD2DTx[3].nic.d2dPeerAddresses = "ueD2DTx[2] ueD2DRx[0]"
+*.ueD2DRx[0].nic.d2dPeerAddresses = "ueD2DTx[3] ueD2DRx[1]"
+*.ueD2DRx[1].nic.d2dPeerAddresses = "ueD2DRx[0] ueD2DRx[2]"
+*.ueD2DRx[2].nic.d2dPeerAddresses = "ueD2DRx[1] ueD2DRx[3]"
+*.ueD2DRx[3].nic.d2dPeerAddresses = "ueD2DRx[2]"
+
+# --- Select CQI for D2D transmissions --- #
+# To enable the reporting of CQIs for each D2D link, set the parameter *.eNodeB.nic.phy.enableD2DCqiReporting
+# To use fixed CQI, set the parameter **.usePreconfiguredTxParams and select the desired CQI using the parameter **.d2dCqi
+#*.eNodeB.nic.phy.enableD2DCqiReporting = true
+#**.usePreconfiguredTxParams = false
+#**.d2dCqi = 7
+**.usePreconfiguredTxParams = true
+**.d2dCqi = ${cqi=3,5,7,9,11,13,15}
+
+# --- Set power consumption ---#
+**.energyConsumerType = "AlternatingEnergyConsumerSimuLTE"
+*.ueD2DTx[*].energyConsumer.powerConsumption = 100mW
+*.ueD2DRx[*].energyConsumer.powerConsumption = 900mW
+*.ueD2DTx[*].energyConsumer.consumptionInterval = 5s
+*.ueD2DRx[*].energyConsumer.consumptionInterval = 5s
+*.ueD2DTx[*].energyConsumer.sleepInterval = 2s
+*.ueD2DRx[*].energyConsumer.sleepInterval = 2s
+*.ueD2DTx[*].energyConsumer.transmittingPowerConsumption = 500mW
+*.ueD2DRx[*].energyConsumer.transmittingPowerConsumption = 0mW
+
+**.energyStorageType = "SimpleEnergyStorage"		### Joelias // De IdealEnergyStorage para SimpleEnergyStorage
+**.energyStorage.nominalCapacity = 0.80J  #1.0		### Joelias
+**.energyStorage.nodeShutdownCapacity = 0J			### Joelias
+**.energyStorage.nodeStartCapacity = 0.6J  # 0.5 * this.nominalCapacity		  #0.5		### Joelias
+**.energyStorage.initialCapacity = 0.7J #uniform(0J, this.nominalCapacity)  #0.9		### Joelias
+**.hasStatus = true										### Joelias
+
+
+#*.ueD2D*[*].energyConsumerType = "StateBasedEnergyConsumer"
+#*.ueD2D*[*].energyConsumer.offPowerConsumption = 0mW
+#*.ueD2D*[*].energyConsumer.sleepPowerConsumption = 1mW
+#*.ueD2D*[*].energyConsumer.switchingPowerConsumption = 1mW
+#*.ueD2D*[*].energyConsumer.receiverIdlePowerConsumption = 2mW
+#*.ueD2D*[*].energyConsumer.receiverBusyPowerConsumption = 5mW
+#*.ueD2D*[*].energyConsumer.receiverReceivingPowerConsumption = 10mW
+#*.ueD2D*[*].energyConsumer.transmitterIdlePowerConsumption = 2mW
+#*.ueD2D*[*].energyConsumer.transmitterTransmittingPowerConsumption = 100mW
+
+#**.energyStorageType = "IdealEnergyStorage"

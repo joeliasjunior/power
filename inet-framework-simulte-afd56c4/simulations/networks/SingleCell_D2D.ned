@@ -22,7 +22,8 @@ import lte.corenetwork.nodes.eNodeB;
 import lte.world.radio.LteChannelControl;
 import lte.epc.PgwStandardSimplified;
 
-import inet.common.lifecycle.LifecycleController;   ///// JOELIAS /////
+////////////// JOELIAS //////////////
+import inet.common.lifecycle.LifecycleController;   
 import inet.environment.common.PhysicalEnvironment;
 import inet.node.inet.INetworkNode;
 import inet.common.figures.DelegateSignalConfigurator;
@@ -55,6 +56,8 @@ import inet.networklayer.common.InterfaceTable;
 import inet.networklayer.contract.INetworkLayer;
 import inet.power.contract.IEnergyStorage;
 import inet.power.contract.IEnergyGenerator;
+////////////// JOELIAS //////////////
+
 
 network SingleCell_D2D
 {
