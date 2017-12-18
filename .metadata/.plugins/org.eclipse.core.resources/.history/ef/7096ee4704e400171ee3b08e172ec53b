@@ -146,11 +146,11 @@ network=lte.simulations.networks.SingleCell_D2DMulticast
 
 # One-to-Many traffic between UEs (ueD2D[0] --> ueD2DRx[1..2])
 # Transmitter
-*.ueD2D[0].udpApp[*].typename = "AlertSender"
-*.ueD2D[0].udpApp[*].localPort = 3088+ancestorIndex(0) 
-*.ueD2D[0].udpApp[*].startTime = uniform(0s,0.02s)
-*.ueD2D[0].udpApp[*].destAddress = "224.0.0.10"          # IP address of the multicast group 
-*.ueD2D[0].udpApp[*].destPort = 1000
+*.ueD2D[0,1].udpApp[*].typename = "AlertSender"
+*.ueD2D[0,1].udpApp[*].localPort = 3088+ancestorIndex(0) 
+*.ueD2D[0,1].udpApp[*].startTime = uniform(0s,0.02s)
+*.ueD2D[0,1].udpApp[*].destAddress = "224.0.0.10"          # IP address of the multicast group 
+*.ueD2D[0,1].udpApp[*].destPort = 1000
 
 # Receivers (they must belong to the above multicast group (see demo.xml)
 *.ueD2D[1..49].udpApp[*].typename = "AlertReceiver"

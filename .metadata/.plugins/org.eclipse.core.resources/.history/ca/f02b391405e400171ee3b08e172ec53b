@@ -152,9 +152,15 @@ network=lte.simulations.networks.SingleCell_D2DMulticast
 *.ueD2D[0].udpApp[*].destAddress = "224.0.0.10"          # IP address of the multicast group 
 *.ueD2D[0].udpApp[*].destPort = 1000
 
+*.ueD2D[1].udpApp[*].typename = "AlertSender"
+*.ueD2D[1].udpApp[*].localPort = 3088+ancestorIndex(0) 
+*.ueD2D[1].udpApp[*].startTime = uniform(0s,0.02s)
+*.ueD2D[1].udpApp[*].destAddress = "224.0.0.10"          # IP address of the multicast group 
+*.ueD2D[1].udpApp[*].destPort = 1000
+
 # Receivers (they must belong to the above multicast group (see demo.xml)
-*.ueD2D[1..49].udpApp[*].typename = "AlertReceiver"
-*.ueD2D[1..49].udpApp[*].localPort = 1000
+*.ueD2D[2..49].udpApp[*].typename = "AlertReceiver"
+*.ueD2D[2..49].udpApp[*].localPort = 1000
 
 # Enable D2D for the eNodeB and the UEs involved in direct communications
 *.eNodeB.d2dCapable = true
@@ -174,7 +180,8 @@ network=lte.simulations.networks.SingleCell_D2DMulticast
 *.ueD2D[*].energyConsumer.consumptionInterval = 5s
 *.ueD2D[*].energyConsumer.sleepInterval = 2s
 *.ueD2D[0].energyConsumer.transmittingPowerConsumption = 100mW
-*.ueD2D[1..49].energyConsumer.transmittingPowerConsumption = 0mW
+*.ueD2D[1].energyConsumer.transmittingPowerConsumption = 100mW
+*.ueD2D[2..49].energyConsumer.transmittingPowerConsumption = 0mW
 
 *.ueD2D[*].energyStorageType = "SimpleEnergyStorage"		### Joelias // De IdealEnergyStorage para SimpleEnergyStorage
 *.ueD2D[*].energyStorage.nominalCapacity = 0.80J  #1.0		### Joelias

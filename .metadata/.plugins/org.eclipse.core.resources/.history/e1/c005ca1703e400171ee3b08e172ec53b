@@ -108,7 +108,7 @@ network=lte.simulations.networks.SingleCell_D2DMulticast
 *.ueD2D[*].energyConsumer.powerConsumption = 100mW
 *.ueD2D[*].energyConsumer.consumptionInterval = 5s
 *.ueD2D[*].energyConsumer.sleepInterval = 2s
-*.ueD2D[0].energyConsumer.transmittingPowerConsumption = 100mW
+*.ueD2D[0].energyConsumer.transmittingPowerConsumption = 500mW
 *.ueD2D[1..3].energyConsumer.transmittingPowerConsumption = 0mW
 
 *.ueD2D[*].energyStorageType = "SimpleEnergyStorage"		### Joelias // De IdealEnergyStorage para SimpleEnergyStorage
@@ -173,8 +173,7 @@ network=lte.simulations.networks.SingleCell_D2DMulticast
 *.ueD2D[*].energyConsumer.powerConsumption = 100mW
 *.ueD2D[*].energyConsumer.consumptionInterval = 5s
 *.ueD2D[*].energyConsumer.sleepInterval = 2s
-*.ueD2D[0].energyConsumer.transmittingPowerConsumption = 100mW
-*.ueD2D[1..49].energyConsumer.transmittingPowerConsumption = 0mW
+*.ueD2D[0].energyConsumer.transmittingPowerConsumption = 500mW
 
 *.ueD2D[*].energyStorageType = "SimpleEnergyStorage"		### Joelias // De IdealEnergyStorage para SimpleEnergyStorage
 *.ueD2D[*].energyStorage.nominalCapacity = 0.80J  #1.0		### Joelias

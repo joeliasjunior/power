@@ -24,4 +24,5 @@
 <booleanAttribute key="org.omnetpp.launch.SHOW_DEBUG_VIEW" value="false"/>
 <stringAttribute key="org.omnetpp.launch.USER_INTERFACE" value="&lt;default-external&gt;"/>
 <stringAttribute key="org.omnetpp.launch.WORKING_DIRECTORY" value="/inet-framework-simulte-afd56c4/simulations/d2d_power"/>
+<stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
 </launchConfiguration>
