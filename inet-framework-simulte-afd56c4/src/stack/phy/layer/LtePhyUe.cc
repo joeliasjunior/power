@@ -12,6 +12,11 @@
 #include "LteFeedbackPkt.h"
 #include "IP2lte.h"
 #include "LteDlFeedbackGenerator.h"
+//#include "inet/power/consumer/AlternatingEnergyConsumerSimuLTE.h"
+//#include "inet/power/consumer/AlternatingEnergyConsumer.h"
+//#include "inet/common/NotifierConsts.h"
+//#include "inet/power/base/PowerDefs.h"
+//#include "IEnergyConsumer.h"
 
 Define_Module(LtePhyUe);
 
@@ -48,8 +53,8 @@ void LtePhyUe::initialize(int stage)
         handoverDelta_ = 0.00001;
         handoverLatency_ = par("handoverLatency").doubleValue();
 
-        // disabled /////// JOELIAS ///////////////
-        useBattery_ = false;   // alterado de false
+        //useBattery_ = false;
+        useBattery_ = true;
 
         enableHandover_ = par("enableHandover");
         enableHandover_ = par("enableHandover"); // TODO : USE IT
@@ -74,14 +79,18 @@ void LtePhyUe::initialize(int stage)
     {
         if (useBattery_)
         {
+            // Se estiver usando bateria entao decrementa
+
+             atualiza.getPowerConsumption();
+
             // TODO register the device to the battery with two accounts, e.g. 0=tx and 1=rx
             // it only affects statistics
             //registerWithBattery("LtePhy", 2);
-            //txAmount_ = par("batteryTxCurrentAmount");      //Descomentei
-            //rxAmount_ = par("batteryRxCurrentAmount");      //Descomentei
+            //txAmount_ = par("batteryTxCurrentAmount");
+            //rxAmount_ = par("batteryRxCurrentAmount");
 
-            //WATCH(txAmount_);                               //Descomentei
-            //WATCH(rxAmount_);                               //Descomentei
+            //WATCH(txAmount_);
+            //WATCH(rxAmount_);
         }
 
         txPower_ = ueTxPower_;
@@ -284,6 +293,7 @@ void LtePhyUe::handleAirFrame(cMessage* msg)
     {
         //TODO
 //        BatteryAccess::drawCurrent(rxAmount_, 0);  // inserido
+       // defineConsumo.setPowerConsumptionSimuLTE(0, units::values::W(310));
     }
     connectedNodeId_ = masterId_;
     LteAirFrame* frame = check_and_cast<LteAirFrame*>(msg);
@@ -411,6 +421,7 @@ void LtePhyUe::handleUpperMessage(cMessage* msg)
     if (useBattery_) {
 //    TODO
 //        BatteryAccess::drawCurrent(txAmount_, 1); //inserido
+        defineConsumo.setPowerConsumptionSimuLTE(0, units::values::W(310));
     }
 
     UserControlInfo* lteInfo = check_and_cast<UserControlInfo*>(msg->getControlInfo());

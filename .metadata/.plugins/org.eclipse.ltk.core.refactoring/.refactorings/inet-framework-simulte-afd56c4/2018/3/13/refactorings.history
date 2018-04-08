@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;inet-framework-simulte-afd56c4/simulations/d2d/omnetpp_bkp_power.ini&apos; to &apos;omnetpp_power_singlecast.ini&apos;" description="Rename resource &apos;omnetpp_bkp_power.ini&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="simulations/d2d/omnetpp_bkp_power.ini" name="omnetpp_power_singlecast.ini" stamp="1522459645151" updateReferences="true"/>
+</session>

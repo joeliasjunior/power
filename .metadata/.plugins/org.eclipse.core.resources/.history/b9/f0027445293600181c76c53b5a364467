@@ -1,0 +1,144 @@
+file 5613 1522641136                                            
+version 2
+run SinglePair-modeSwitching-UDP-1-20180402-00:52:14-19521
+attr configname SinglePair-modeSwitching-UDP
+attr datetime 20180402-00:52:14
+attr experiment SinglePair-modeSwitching-UDP
+attr inifile omnetpp_power_singlecast.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=1
+attr measurement ""
+attr network lte.simulations.networks.SingleCell_D2D
+attr processid 19521
+attr repetition 1
+attr replication #1
+attr resultdir results
+attr runnumber 1
+attr seedset 1
+param **.amcMode "\"D2D\""
+param **.channelControl.alpha 1.0
+param **.channelControl.carrierFrequency 2100e+6Hz
+param **.channelControl.pMax 10W
+param **.deployer.numRbDl 50
+param **.deployer.numRbUl 50
+param **.fbDelay 1
+param **.feedbackComputation "xmldoc(\"config_channel.xml\")"
+param **.mobility.constraintAreaMaxZ 0m
+param **.mobility.constraintAreaMinZ 0m
+param **.nic.phy.channelModel "xmldoc(\"config_channel.xml\")"
+param **.numBands 50
+param **.rbAllocationType "\"localized\""
+param **.routingRecorder.enabled false
+param **.usePreconfiguredTxParams false
+param *.eNodeB.d2dCapable true
+param *.eNodeB.mobility.initFromDisplayString false
+param *.eNodeB.mobility.initialX 300m
+param *.eNodeB.mobility.initialY 300m
+param *.eNodeB.nic.d2dModeSelection true
+param *.eNodeB.nic.d2dModeSelectionType "\"D2DModeSelectionBestCqi\""
+param *.eNodeB.nic.phy.enableD2DCqiReporting true
+param *.numUeCell 0
+param *.numUeD2DRx 1
+param *.numUeD2DTx 1
+param *.ue*[0].macCellId 1
+param *.ue*[0].masterId 1
+param *.ue*[0].mobility.initFromDisplayString false
+param *.ue*[0].mobility.speed 10mps
+param *.ue*[0].mobilityType "\"LinearMobility\""
+param *.ueD2D*[*].d2dCapable true
+param *.ueD2D*[*].energyConsumer.consumptionInterval 0s
+param *.ueD2D*[*].energyConsumer.powerConsumption 110mW
+param *.ueD2D*[*].energyConsumer.sleepInterval 0s
+param *.ueD2D*[*].energyConsumerType "\"AlternatingEnergyConsumerSimuLTE\""
+param *.ueD2D*[*].energyStorageType "\"IdealEnergyStorage\""
+param *.ueD2D*[*].hasStatus true
+param *.ueD2D*[0].numUdpApps 1
+param *.ueD2DRx[0].energyConsumer.transmittingPowerConsumption 0mW
+param *.ueD2DRx[0].mobility.angle 0deg
+param *.ueD2DRx[0].mobility.constraintAreaMaxX 400m
+param *.ueD2DRx[0].mobility.constraintAreaMinX 310m
+param *.ueD2DRx[0].mobility.initialX 310m
+param *.ueD2DRx[0].mobility.initialY 400m
+param *.ueD2DRx[0].udpApp[*].localPort 1000
+param *.ueD2DRx[0].udpApp[*].typename "\"VoIPReceiver\""
+param *.ueD2DTx[0].energyConsumer.transmittingPowerConsumption 340mW
+param *.ueD2DTx[0].mobility.angle 180deg
+param *.ueD2DTx[0].mobility.constraintAreaMaxX 290m
+param *.ueD2DTx[0].mobility.constraintAreaMinX 200m
+param *.ueD2DTx[0].mobility.initialX 290m
+param *.ueD2DTx[0].mobility.initialY 400m
+param *.ueD2DTx[0].nic.d2dPeerAddresses "\"ueD2DRx[0]\""
+param *.ueD2DTx[0].udpApp[*].destAddress "\"ueD2DRx[0]\""
+param *.ueD2DTx[0].udpApp[*].destPort 1000
+param *.ueD2DTx[0].udpApp[*].localPort 3088+ancestorIndex(0)
+param *.ueD2DTx[0].udpApp[*].startTime uniform(0s,0.02s)
+param *.ueD2DTx[0].udpApp[*].typename "\"VoIPSender\""
+
+vector 8  SingleCell_D2D.server.ppp[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 9  SingleCell_D2D.server.ppp[0].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 24  SingleCell_D2D.router.ppp[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 25  SingleCell_D2D.router.ppp[0].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 35  SingleCell_D2D.router.ppp[1].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 36  SingleCell_D2D.router.ppp[1].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 56  SingleCell_D2D.pgw.ppp[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 57  SingleCell_D2D.pgw.ppp[0].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 67  SingleCell_D2D.pgw.pppInterface.queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 68  SingleCell_D2D.pgw.pppInterface.ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 95  SingleCell_D2D.eNodeB.ppp.queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 96  SingleCell_D2D.eNodeB.ppp.ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 111  SingleCell_D2D.ueD2DTx[0].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 114  SingleCell_D2D.ueD2DTx[0].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 143  SingleCell_D2D.ueD2DRx[0].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 146  SingleCell_D2D.ueD2DRx[0].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+8	5457 8 0 0 0 0 1 0 0 0 0
+9	5465 8 0 0 0 0 1 0 0 0 0
+24	5473 9 0 0 0 0 1 0 0 0 0
+25	5482 9 0 0 0 0 1 0 0 0 0
+35	5491 9 0 0 0 0 1 0 0 0 0
+36	5500 9 0 0 0 0 1 0 0 0 0
+56	5509 9 0 0 0 0 1 0 0 0 0
+57	5518 9 0 0 0 0 1 0 0 0 0
+67	5527 9 0 0 0 0 1 0 0 0 0
+68	5536 9 0 0 0 0 1 0 0 0 0
+95	5545 9 0 0 0 0 1 0 0 0 0
+96	5554 9 0 0 0 0 1 0 0 0 0
+111	5563 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+114	5575 13 0 0 0 0 1 0.45 0.45 0.45 0.2025
+143	5588 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+146	5600 13 0 0 0 0 1 0.11 0.11 0.11 0.0121

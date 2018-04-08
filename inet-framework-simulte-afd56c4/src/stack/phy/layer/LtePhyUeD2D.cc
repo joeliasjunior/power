@@ -11,6 +11,7 @@
 #include "LtePhyUeD2D.h"
 #include "LteFeedbackPkt.h"
 #include "D2DModeSelectionBase.h"
+#include "inet/power/base/EnergyStorageBase.h"
 
 Define_Module(LtePhyUeD2D);
 
@@ -69,6 +70,7 @@ void LtePhyUeD2D::handleAirFrame(cMessage* msg)
     if (useBattery_)
     {
         //TODO BatteryAccess::drawCurrent(rxAmount_, 0);
+       // defineConsumo.setPowerConsumption(0, units::values::W(310));
     }
     connectedNodeId_ = masterId_;
     LteAirFrame* frame = check_and_cast<LteAirFrame*>(msg);
@@ -237,9 +239,11 @@ void LtePhyUeD2D::doHandover()
 
 void LtePhyUeD2D::handleUpperMessage(cMessage* msg)
 {
-//    if (useBattery_) {
+    if (useBattery_) {
 //    TODO     BatteryAccess::drawCurrent(txAmount_, 1);
-//    }
+        EnergyStorageSimuLTE::handleEnergy();
+
+    }
 
     UserControlInfo* lteInfo = check_and_cast<UserControlInfo*>(msg->removeControlInfo());
 
@@ -516,4 +520,9 @@ void LtePhyUeD2D::sendFeedback(LteFeedbackDoubleVector fbDl, LteFeedbackDoubleVe
     EV << "LtePhy: " << nodeTypeToA(nodeType_) << " with id "
        << nodeId_ << " sending feedback to the air channel" << endl;
     sendUnicast(frame);
+}
+
+void EnergyStorageSimuLTE::handleEnergy()
+{
+    defineConsumo.setPowerConsumptionSimuLTE(0, units::values::W(310));
 }

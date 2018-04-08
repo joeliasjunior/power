@@ -14,6 +14,13 @@
 #include "DasFilter.h"
 #include "LteMacUe.h"
 #include "LteRlcUm.h"
+//#include "inet/power/consumer/AlternatingEnergyConsumerSimuLTE.h"
+#include "inet/power/consumer/AlternatingEnergyConsumer.h"
+#include "inet/power/storage/IdealEnergyStorage.h"
+//#include "inet/power/contract/IEnergyConsumer.h"
+//#include "inet/power/contract/IEnergySource.h"
+//#include "inet/common/NotifierConsts.h"
+//#include "inet/power/base/PowerDefs.h"
 
 class DasFilter;
 
@@ -88,6 +95,9 @@ class LtePhyUe : public LtePhyBase
     bool useBattery_;
     double txAmount_;    // drawn current amount for tx operations (mA)
     double rxAmount_;    // drawn current amount for rx operations (mA)
+
+    inet::power::AlternatingEnergyConsumer atualiza;
+
 
     LteMacUe *mac_;
     LteRlcUm *rlcUm_;
@@ -165,6 +175,8 @@ class LtePhyUe : public LtePhyBase
         }
         return 0;
     }
+
+    inet::power::IdealEnergyStorage defineConsumo;
 };
 
 #endif  /* _LTE_AIRPHYUE_H_ */

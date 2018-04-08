@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;inet-framework-simulte-afd56c4/simulations/d2d_power/results/cqi=3_17-02-18].anf&apos; to &apos;cqi=3_17-02-18.anf&apos;" description="Rename resource &apos;cqi=3_17-02-18].anf&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="simulations/d2d_power/results/cqi=3_17-02-18].anf" name="cqi=3_17-02-18.anf" stamp="1518905314970" updateReferences="true"/>
+</session>

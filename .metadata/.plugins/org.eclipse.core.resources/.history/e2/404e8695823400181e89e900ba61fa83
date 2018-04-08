@@ -1,0 +1,304 @@
+file 2007291 1522005823                                         
+version 2
+run SinglePair-modeSwitching-UDP-0-20180325-16:22:52-7470
+attr configname SinglePair-modeSwitching-UDP
+attr datetime 20180325-16:22:52
+attr experiment SinglePair-modeSwitching-UDP
+attr inifile omnetpp_bkp_power.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network lte.simulations.networks.SingleCell_D2D
+attr processid 7470
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.amcMode "\"D2D\""
+param **.channelControl.alpha 1.0
+param **.channelControl.carrierFrequency 2100e+6Hz
+param **.channelControl.pMax 10W
+param **.deployer.numRbDl 50
+param **.deployer.numRbUl 50
+param **.fbDelay 1
+param **.feedbackComputation "xmldoc(\"config_channel.xml\")"
+param **.mobility.constraintAreaMaxZ 0m
+param **.mobility.constraintAreaMinZ 0m
+param **.nic.phy.channelModel "xmldoc(\"config_channel.xml\")"
+param **.numBands 50
+param **.rbAllocationType "\"localized\""
+param **.routingRecorder.enabled false
+param **.usePreconfiguredTxParams false
+param *.eNodeB.d2dCapable true
+param *.eNodeB.mobility.initFromDisplayString false
+param *.eNodeB.mobility.initialX 300m
+param *.eNodeB.mobility.initialY 300m
+param *.eNodeB.nic.d2dModeSelection true
+param *.eNodeB.nic.d2dModeSelectionType "\"D2DModeSelectionBestCqi\""
+param *.eNodeB.nic.phy.enableD2DCqiReporting true
+param *.numUeCell 0
+param *.numUeD2DRx 1
+param *.numUeD2DTx 1
+param *.ue*[0].macCellId 1
+param *.ue*[0].masterId 1
+param *.ue*[0].mobility.initFromDisplayString false
+param *.ue*[0].mobility.speed 10mps
+param *.ue*[0].mobilityType "\"LinearMobility\""
+param *.ueD2D*[*].d2dCapable true
+param *.ueD2D*[*].energyConsumer.consumptionInterval 2s
+param *.ueD2D*[*].energyConsumer.powerConsumption 110mW
+param *.ueD2D*[*].energyConsumer.sleepInterval 5s
+param *.ueD2D*[*].energyConsumerType "\"AlternatingEnergyConsumerSimuLTE\""
+param *.ueD2D*[*].energyStorageType "\"IdealEnergyStorage\""
+param *.ueD2D*[*].hasStatus true
+param *.ueD2D*[0].numUdpApps 1
+param *.ueD2DRx[0].energyConsumer.transmittingPowerConsumption 0mW
+param *.ueD2DRx[0].mobility.angle 0deg
+param *.ueD2DRx[0].mobility.constraintAreaMaxX 400m
+param *.ueD2DRx[0].mobility.constraintAreaMinX 310m
+param *.ueD2DRx[0].mobility.initialX 310m
+param *.ueD2DRx[0].mobility.initialY 400m
+param *.ueD2DRx[0].udpApp[*].localPort 1000
+param *.ueD2DRx[0].udpApp[*].typename "\"VoIPReceiver\""
+param *.ueD2DTx[0].energyConsumer.transmittingPowerConsumption 340mW
+param *.ueD2DTx[0].mobility.angle 180deg
+param *.ueD2DTx[0].mobility.constraintAreaMaxX 290m
+param *.ueD2DTx[0].mobility.constraintAreaMinX 200m
+param *.ueD2DTx[0].mobility.initialX 290m
+param *.ueD2DTx[0].mobility.initialY 400m
+param *.ueD2DTx[0].nic.d2dPeerAddresses "\"ueD2DRx[0]\""
+param *.ueD2DTx[0].udpApp[*].destAddress "\"ueD2DRx[0]\""
+param *.ueD2DTx[0].udpApp[*].destPort 1000
+param *.ueD2DTx[0].udpApp[*].localPort 3088+ancestorIndex(0)
+param *.ueD2DTx[0].udpApp[*].startTime uniform(0s,0.02s)
+param *.ueD2DTx[0].udpApp[*].typename "\"VoIPSender\""
+
+vector 170  SingleCell_D2D.server.ppp[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 171  SingleCell_D2D.server.ppp[0].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 186  SingleCell_D2D.router.ppp[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 187  SingleCell_D2D.router.ppp[0].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 197  SingleCell_D2D.router.ppp[1].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 198  SingleCell_D2D.router.ppp[1].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 218  SingleCell_D2D.pgw.ppp[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 219  SingleCell_D2D.pgw.ppp[0].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 229  SingleCell_D2D.pgw.pppInterface.queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 230  SingleCell_D2D.pgw.pppInterface.ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 257  SingleCell_D2D.eNodeB.ppp.queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 258  SingleCell_D2D.eNodeB.ppp.ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 273  SingleCell_D2D.ueD2DTx[0].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 276  SingleCell_D2D.ueD2DTx[0].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 305  SingleCell_D2D.ueD2DRx[0].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 308  SingleCell_D2D.ueD2DRx[0].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 247  SingleCell_D2D.eNodeB.nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 268  SingleCell_D2D.ueD2DTx[0].udp  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 277  SingleCell_D2D.ueD2DTx[0].nic.pdcpRrc  receivedPacketFromUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromUpperLayer
+vector 280  SingleCell_D2D.ueD2DTx[0].nic.pdcpRrc  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 281  SingleCell_D2D.ueD2DTx[0].nic.mac  receivedPacketFromUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromUpperLayer
+vector 284  SingleCell_D2D.ueD2DTx[0].nic.mac  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 249  SingleCell_D2D.eNodeB.nic.mac  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 282  SingleCell_D2D.ueD2DTx[0].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 252  SingleCell_D2D.eNodeB.nic.phy  averageCqiUlvect:vector  ETV
+attr source  averageCqiUlvect
+attr title  "Average Cqi reported in UL, vector"
+attr unit  cqi
+vector 250  SingleCell_D2D.eNodeB.nic.mac  measuredItbs:vector  ETV
+attr source  measuredItbs
+attr title  "TBS index, vector"
+attr unit  ""
+vector 283  SingleCell_D2D.ueD2DTx[0].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 320  SingleCell_D2D.ueD2DRx[0].nic.phy  averageCqiD2Dvect:vector  ETV
+attr source  averageCqiD2Dvect
+attr title  "Average Cqi reported in D2D, vector"
+attr unit  cqi
+vector 314  SingleCell_D2D.ueD2DRx[0].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 316  SingleCell_D2D.ueD2DRx[0].nic.mac  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 315  SingleCell_D2D.ueD2DRx[0].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 310  SingleCell_D2D.ueD2DRx[0].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 311  SingleCell_D2D.ueD2DRx[0].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 301  SingleCell_D2D.ueD2DRx[0].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 302  SingleCell_D2D.ueD2DRx[0].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 299  SingleCell_D2D.ueD2DRx[0].udpApp[0]  voipReceivedThroughtput:vector  ETV
+attr source  voipReceivedThroughtput
+attr title  "Throughput received at the application level, vector"
+attr unit  Bps
+vector 292  SingleCell_D2D.ueD2DRx[0].udpApp[0]  voIPFrameLoss:vector  ETV
+attr source  voIPFrameLoss
+attr title  "VoIP Frame Loss, vector"
+attr unit  ratio
+vector 293  SingleCell_D2D.ueD2DRx[0].udpApp[0]  voIPFrameDelay:vector  ETV
+attr source  voIPFrameDelay
+attr title  "VoIP Frame Delay, vector"
+attr unit  s
+vector 294  SingleCell_D2D.ueD2DRx[0].udpApp[0]  voIPPlayoutDelay:vector  ETV
+attr source  voIPPlayoutDelay
+attr title  "VoIP Playout Delay, vector"
+attr unit  s
+vector 295  SingleCell_D2D.ueD2DRx[0].udpApp[0]  voIPPlayoutLoss:vector  ETV
+attr source  voIPPlayoutLoss
+attr title  "VoIP Playout Loss, vector"
+attr unit  ratio
+vector 297  SingleCell_D2D.ueD2DRx[0].udpApp[0]  voIPMos:vector  ETV
+attr source  voIPMos
+attr title  "VoIP Mos Signal, vector"
+attr unit  MOS
+vector 298  SingleCell_D2D.ueD2DRx[0].udpApp[0]  voIPTaildropLoss:vector  ETV
+attr source  voIPTaildropLoss
+attr title  "VoIP Tail Drop Loss, vector"
+attr unit  ratio
+vector 275  SingleCell_D2D.ueD2DTx[0].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 307  SingleCell_D2D.ueD2DRx[0].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 248  SingleCell_D2D.eNodeB.nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 243  SingleCell_D2D.eNodeB.nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 244  SingleCell_D2D.eNodeB.nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 242  SingleCell_D2D.eNodeB.nic.pdcpRrc  receivedPacketFromUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromUpperLayer
+vector 245  SingleCell_D2D.eNodeB.nic.pdcpRrc  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 246  SingleCell_D2D.eNodeB.nic.mac  receivedPacketFromUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromUpperLayer
+vector 318  SingleCell_D2D.ueD2DRx[0].nic.phy  averageCqiDlvect:vector  ETV
+attr source  averageCqiDlvect
+attr title  "Average Cqi reported in DL, vector"
+attr unit  cqi
+vector 296  SingleCell_D2D.ueD2DRx[0].udpApp[0]  voIPJitter:vector  ETV
+attr source  voIPJitter
+attr title  "VoIP Playout Loss, vector"
+attr unit  s
+170	11437 10 0 0 0 0 1 0 0 0 0
+171	11447 10 0 0 0 0 1 0 0 0 0
+186	11457 10 0 0 0 0 1 0 0 0 0
+187	11467 10 0 0 0 0 1 0 0 0 0
+197	11477 10 0 0 0 0 1 0 0 0 0
+198	11487 10 0 0 0 0 1 0 0 0 0
+218	11497 10 0 0 0 0 1 0 0 0 0
+219	11507 10 0 0 0 0 1 0 0 0 0
+229	11517 10 0 0 0 0 1 0 0 0 0
+230	11527 10 0 0 0 0 1 0 0 0 0
+242	11537 28781 24400 382451 3.062 49.994 1403 68 68 95404 6487472
+243	40318 28781 24395 382446 3.062 49.994 1403 69 69 96807 6679683
+244	69099 28781 24395 382446 3.062 49.994 1403 68 68 95404 6487472
+245	97880 28781 24400 382451 3.062 49.994 1403 69 69 96807 6679683
+246	126661 57192 24403 382466 3.062 49.995 2806 69 71 196420 13752206
+247	183853 439398 36 382517 0.002 50 22750 0 0 0 0
+248	623251 55949 24390 382462 3.062 49.995 2814 0 71 99613 7072523
+249	679200 208552 94 382469 0.011 49.995 10767 0 0 0 0
+250	887752 76226 146 382462 0.018 49.995 3740 18 26 96510 2494778
+252	963978 47780 128 382427 0.015 49.991 2339 15 15 35085 526275
+257	1011758 10 0 0 0 0 1 0 0 0 0
+258	1011768 10 0 0 0 0 1 0 0 0 0
+268	1011778 54883 77 382373 0.01 49.985002070949 1872 48 48 89856 4313088
+273	1066661 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+275	1066673 265 15239 374151 2 49 14 -18.2 -0.9 -133.7 1665.51
+276	1066938 273 0 374151 0 49 15 0.34 0.45 5.98 2.4292
+277	1067211 54883 80 382376 0.01 49.985002070949 1872 68 68 127296 8656128
+280	1122094 54883 80 382376 0.01 49.985002070949 1872 69 69 129168 8912592
+281	1176977 93094 83 382418 0.01 49.99 3743 69 71 262009 18344303
+282	1270071 189935 104 382474 0.012 49.995 9826 0 0 0 0
+283	1460006 36518 167 382414 0.02 49.99 1880 0 0 0 0
+284	1496524 99579 85 382421 0.01 49.99 5146 0 0 0 0
+292	1596103 494 3836 382518 0.567 50 25 0 0.00418410041841 0.00418410041841 1.7506696311339e-05
+293	1596597 60056 3836 382518 0.567 50 1870 0.013042698626 0.014636068347 25.498419659547 0.34806480141726
+294	1656653 483 3836 382518 0.567 50 25 0 0.001 0.001 1e-06
+295	1657136 494 3836 382518 0.567 50 25 0 0.52092050209205 0.52092050209205 0.27135816949983
+296	1657630 5976 300628 300628 39.763 39.763 249 0.001 0.001 0.249 0.000249
+297	1663606 737 3836 382518 0.567 50 25 1.1855063168391 4.409285824 107.00790104367 468.00455983956
+298	1664343 479 3836 382518 0.567 50 25 0 0 0 0
+299	1664822 38152 210 382504 0.024 49.999 1870 40 40 74800 2992000
+301	1702974 38152 209 382503 0.024 49.999 1870 48 48 89760 4308480
+302	1741126 40785 209 382503 0.024 49.999 1870 1 1870 1749385 2181483095
+305	1781911 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+307	1781923 272 15240 374152 2 49 14 -1.54 -0.22 -12.32 13.552
+308	1782195 252 0 374152 0 49 15 0 0.11 0.88 0.0968
+310	1782447 38152 206 382500 0.024 49.999 1870 69 69 129030 8903070
+311	1820599 38152 206 382500 0.024 49.999 1870 68 68 127160 8646880
+314	1858751 36078 187 382481 0.021 49.996 1875 0 0 0 0
+315	1894829 38330 202 382496 0.024 49.999 1879 0 71 132770 9426670
+316	1933159 36282 202 382496 0.024 49.999 1870 0 0 0 0
+318	1969441 28331 24429 382480 3.064 49.996 1403 15 15 21045 315675
+320	1997772 9519 186 295094 0.021 39.034 467 10 15 6667 96139

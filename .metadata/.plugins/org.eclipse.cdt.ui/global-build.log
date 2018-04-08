@@ -1,150 +1,19 @@
-22:26:08 **** Incremental Build of configuration gcc-debug for project inet ****
+10:46:25 **** Incremental Build of configuration gcc-debug for project inet ****
 make MODE=debug CONFIGNAME=gcc-debug -j4 all 
 cd src && make all
 make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
 make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-22:26:09 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
+10:46:25 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
 make MODE=debug CONFIGNAME=gcc-debug -j4 all 
 cd src && make
 make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
+stack/phy/layer/LtePhyUeD2D.cc
+stack/phy/layer/LtePhyUeD2D.cc: In member function 'virtual void LtePhyUeD2D::handleUpperMessage(omnetpp::cMessage*)':
+stack/phy/layer/LtePhyUeD2D.cc:244:44: error: cannot call member function 'virtual void EnergyStorageSimuLTE::handleEnergy()' without object
+         EnergyStorageSimuLTE::handleEnergy();
+                                            ^
+make[1]: *** [../out/gcc-debug/src/stack/phy/layer/LtePhyUeD2D.o] Error 1
+Makefile:338: recipe for target '../out/gcc-debug/src/stack/phy/layer/LtePhyUeD2D.o' failed
+make: *** [all] Error 2
 make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-22:31:09 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-22:31:10 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-22:31:35 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-22:31:36 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-22:58:12 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-22:58:12 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-23:00:19 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-23:00:20 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-23:02:22 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-23:02:23 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-23:05:24 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-23:05:24 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-21:34:07 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-21:34:08 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-11:51:02 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-11:51:03 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-11:53:22 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-11:53:24 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-11:53:47 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-11:53:49 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-11:54:54 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-11:54:55 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-11:55:49 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-11:55:51 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-12:01:25 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-12:01:26 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-12:02:38 **** Incremental Build of configuration gcc-debug for project inet ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make all
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet/src'
-12:02:40 **** Incremental Build of configuration gcc-debug for project inet-framework-simulte-afd56c4 ****
-make MODE=debug CONFIGNAME=gcc-debug -j4 all 
-cd src && make
-make[1]: Entering directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
-make[1]: Leaving directory '/home/joelias/Dropbox/UFF/Pesquisa/power/inet-framework-simulte-afd56c4/src'
+Makefile:2: recipe for target 'all' failed

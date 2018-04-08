@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
+  <inputs>
+    <inputs name="/inet-framework-simulte-afd56c4/simulations/d2d_power/results/D2DMulticast-1toM/cqi=3-0.sca"/>
+    <inputs name="/inet-framework-simulte-afd56c4/simulations/d2d_power/results/D2DMulticast-1toM/cqi=3-0.vec"/>
+    <inputs name="/inet-framework-simulte-afd56c4/simulations/d2d_power/results/D2DMulticast-1toM/cqi=3-1.sca"/>
+    <inputs name="/inet-framework-simulte-afd56c4/simulations/d2d_power/results/D2DMulticast-1toM/cqi=3-1.vec"/>
+    <inputs name="/inet-framework-simulte-afd56c4/simulations/d2d_power/results/D2DMulticast-1toM/cqi=3-2.sca"/>
+    <inputs name="/inet-framework-simulte-afd56c4/simulations/d2d_power/results/D2DMulticast-1toM/cqi=3-2.vec"/>
+    <inputs name="/inet-framework-simulte-afd56c4/simulations/d2d_power/results/D2DMulticast-1toM/cqi=3-3.sca"/>
+    <inputs name="/inet-framework-simulte-afd56c4/simulations/d2d_power/results/D2DMulticast-1toM/cqi=3-3.vec"/>
+  </inputs>
+  <datasets/>
+  <chartSheets/>
+</scave:Analysis>

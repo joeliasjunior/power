@@ -39,7 +39,6 @@ class INET_API AlternatingEnergyConsumer : public cSimpleModule, public IEnergyC
     int energyConsumerId;
     IEnergySource *energySource;
     W powerConsumption;
-//    W transmittingConsumption;
     cMessage *timer;
 
   protected:
@@ -54,6 +53,7 @@ class INET_API AlternatingEnergyConsumer : public cSimpleModule, public IEnergyC
   public:
     AlternatingEnergyConsumer();
     virtual ~AlternatingEnergyConsumer();
+  //  virtual void updatePowerConsumption();
 
     virtual W getPowerConsumption() const override { return powerConsumption; }
 };

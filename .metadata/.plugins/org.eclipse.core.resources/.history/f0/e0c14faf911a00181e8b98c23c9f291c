@@ -1,0 +1,113 @@
+[General]
+image-path=../../images
+tkenv-plugin-path = ../../../inet/etc/plugins
+output-scalar-file-append = false
+debug-on-errors = false
+tkenv-default-config = 
+sim-time-limit=73800s
+warmup-period=100s
+repeat = 1
+**.routingRecorder.enabled = false
+
+############### Statistics ##################
+output-scalar-file = ${resultdir}/${configname}/${repetition}.sca
+output-vector-file = ${resultdir}/${configname}/${repetition}.vec
+seed-set = ${repetition}
+**.vector-recording = true
+
+################ Channel parameters #####################
+**.channelControl.pMax = 10W
+**.channelControl.alpha = 1.0
+**.channelControl.carrierFrequency = 2100e+6Hz
+
+################ Mobility parameters #####################
+**.mobility.constraintAreaMinZ = 0m
+**.mobility.constraintAreaMaxZ = 0m
+
+################# Deployer parameters #######################
+# UEs attached to eNB
+**.fbDelay = 1
+
+############### AMC MODULE PARAMETERS ###############
+**.rbAllocationType = "localized"
+**.deployer.numRbDl = 50
+**.deployer.numRbUl = 50
+**.numBands = 50
+
+
+##########################################################   
+############### Config "D2DMulticast-1toM" ###############
+##########################################################
+# In this configuration, a transmitting UE sends periodic alert messages to "numUEs" users. 
+# UEs are randomly deployed within the cell served by the eNodeB 
+
+[Config D2DMulticast-1toM]
+network=lte.simulations.networks.SingleCell_D2DMulticast
+
+### eNodeBs configuration ###
+*.eNodeB.mobility.initFromDisplayString = false
+*.eNodeB.mobility.initialX = 300m
+*.eNodeB.mobility.initialY = 300m
+
+### UEs configuration ###
+*.numUeCell = 0
+*.numUeD2D = ${numUEs=10}
+
+*.ue*[*].macCellId = 1
+*.ue*[*].masterId = 1
+*.ue*[*].mobility.initFromDisplayString = false
+
+*.ue*[*].mobility.initialX = uniform(200m,400m)
+*.ue*[*].mobility.initialY = uniform(200m,400m)
+
+### Traffic configuration ###
+*.ueD2D[*].numUdpApps = 1
+
+# One-to-Many traffic between UEs
+# Transmitter
+	#UEs 0, 1, 2 and 3 are configured as transmitters when D2D is choosen
+*.ueD2D[0..3].udpApp[*].typename = "AlertSender"
+*.ueD2D[0..3].udpApp[*].localPort = 3088+ancestorIndex(0) 
+*.ueD2D[0..3].udpApp[*].startTime = uniform(0s,0.02s)
+*.ueD2D[0..3].udpApp[*].destAddress = "224.0.0.10"          # IP address of the multicast group 
+*.ueD2D[0..3].udpApp[*].destPort = 1000
+
+# Receivers (they must belong to the above multicast group (see demo.xml)
+	#UEs from 4 to 9 are configured as receivers when D2D is choosen
+*.ueD2D[4..9].udpApp[*].typename = "AlertReceiver"
+*.ueD2D[4..9].udpApp[*].localPort = 1000
+
+# Enable D2D for the eNodeB and the UEs involved in direct communications
+*.eNodeB.d2dCapable = true
+*.ueD2D[*].d2dCapable = true
+**.amcMode = "D2D"
+
+# --- Select CQI for D2D transmissions --- #
+# One-to-Many communications work with fixed CQI values only.
+# Set the parameter **.usePreconfiguredTxParams and select the desired CQI using the parameter **.d2dCqi
+**.usePreconfiguredTxParams = true
+**.d2dCqi = ${cqi=3,5,7,9,11,13,15}
+
+### PhyLayer parameters ###
+**.nic.phy.channelModel=xmldoc("config_channel_nofadshad.xml")
+**.feedbackComputation = xmldoc("config_channel_nofadshad.xml")
+
+output-scalar-file = ${resultdir}/${configname}/cqi=${cqi}-${repetition}.sca
+output-vector-file = ${resultdir}/${configname}/cqi=${cqi}-${repetition}.vec
+
+############### Set power consumption ###############
+*.ueD2D[*].energyConsumerType = "AlternatingEnergyConsumerSimuLTE"				# Consumption values refered to (Huang, 2013)
+*.ueD2D[*].energyConsumer.powerConsumption = 110mW								# 110mW consumption for listening devices.
+*.ueD2D[*].energyConsumer.consumptionInterval = 2s								# Energy consumption interval to consume energy
+*.ueD2D[*].energyConsumer.sleepInterval = 5s									# Interval not consuming energy
+*.ueD2D[0..3].energyConsumer.transmittingPowerConsumption = 340mW				# Value to transmitt = 450mW-110mW(value using to listen)=310mW
+*.ueD2D[4..9].energyConsumer.transmittingPowerConsumption = 0mW					# nodes 4 to 9 isn't transmitting, so value is 0mW.
+
+*.ueD2D[*].energyStorageType = "SimpleEnergyStorage"		
+*.ueD2D[*].energyStorage.nominalCapacity = 100J  								# The maximum amount of energy stored in a device.
+*.ueD2D[*].energyStorage.nodeStartCapacity = 80J 								# Energy device begins simulation.
+#*.ueD2D[*].energyStorage.initialCapacity = uniform(0J, this.nodeStartCapacity) # The initially stored amount of energy. Default value is nominalCapacity 
+*.ueD2D[*].energyStorage.printCapacityStep = (0.01 * this.nominalCapacity) 		# Displays residual capacity changes in the log. Default is 0.01 * nominalCapacity.
+*.ueD2D[0..3].energyStorage.nodeShutdownCapacity = 15J							# Energy level for relaying device to stop being in the simulation.
+*.ueD2D[4..9].energyStorage.nodeShutdownCapacity = 0J							# Energy level for non-relaying device to stop being in the simulation.
+*.ueD2D[*].hasStatus = true

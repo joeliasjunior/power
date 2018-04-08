@@ -11,6 +11,11 @@
 #define _LTE_AIRPHYUED2D_H_
 
 #include "LtePhyUe.h"
+#include "inet/power/base/EnergyStorageBase.h"
+#include "inet/power/storage/IdealEnergyStorage.h"
+#include "inet/power/contract/IEnergyConsumer.h"
+#include "inet/power/contract/IEnergySource.h"
+#include "inet/common/Units.h"
 
 class LtePhyUeD2D : public LtePhyUe
 {
@@ -42,6 +47,8 @@ class LtePhyUeD2D : public LtePhyUe
     virtual void triggerHandover();
     virtual void doHandover();
 
+    //units::values::W consumedPower;
+
   public:
     LtePhyUeD2D();
     virtual ~LtePhyUeD2D();
@@ -55,4 +62,30 @@ class LtePhyUeD2D : public LtePhyUe
     }
 };
 
+class EnergyStorageSimuLTE : public cSimpleModule
+{
+    protected:
+       // virtual void initialize();
+        virtual void handleEnergy();
+        inet::power::IdealEnergyStorage defineConsumo;
+    //inet::units::units::W consumedPower;
+};
+
 #endif  /* _LTE_AIRPHYUED2D_H_ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

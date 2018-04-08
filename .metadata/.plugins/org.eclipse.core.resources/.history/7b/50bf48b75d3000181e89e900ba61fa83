@@ -1,0 +1,1669 @@
+file 16861828 1522002887                                        
+version 2
+run D2DMulticast-1toM-1-20180325-15:28:09-4835
+attr configname D2DMulticast-1toM
+attr cqi 3
+attr datetime 20180325-15:28:09
+attr experiment D2DMulticast-1toM
+attr inifile d2d_power_mult_SemRestricao.ini
+attr iterationvars "$numUEs=30, $cqi=3"
+attr iterationvars2 "$numUEs=30, $cqi=3, $repetition=1"
+attr measurement "$numUEs=30, $cqi=3"
+attr network lte.simulations.networks.SingleCell_D2DMulticast
+attr numUEs 30
+attr processid 4835
+attr repetition 1
+attr replication #1
+attr resultdir results
+attr runnumber 1
+attr seedset 1
+param **.amcMode "\"D2D\""
+param **.channelControl.alpha 1.0
+param **.channelControl.carrierFrequency 2100e+6Hz
+param **.channelControl.pMax 10W
+param **.d2dCqi ${cqi=3}
+param **.deployer.numRbDl 50
+param **.deployer.numRbUl 50
+param **.fbDelay 1
+param **.feedbackComputation "xmldoc(\"config_channel_nofadshad.xml\")"
+param **.mobility.constraintAreaMaxZ 0m
+param **.mobility.constraintAreaMinZ 0m
+param **.nic.phy.channelModel "xmldoc(\"config_channel_nofadshad.xml\")"
+param **.numBands 50
+param **.rbAllocationType "\"localized\""
+param **.routingRecorder.enabled false
+param **.usePreconfiguredTxParams true
+param *.eNodeB.d2dCapable true
+param *.eNodeB.mobility.initFromDisplayString false
+param *.eNodeB.mobility.initialX 300m
+param *.eNodeB.mobility.initialY 300m
+param *.numUeCell 0
+param *.numUeD2D ${numUEs=30}
+param *.ue*[*].macCellId 1
+param *.ue*[*].masterId 1
+param *.ue*[*].mobility.initFromDisplayString false
+param *.ue*[*].mobility.initialX uniform(100m,800m)
+param *.ue*[*].mobility.initialY uniform(100m,800m)
+param *.ueD2D[*].d2dCapable true
+param *.ueD2D[*].energyConsumer.consumptionInterval 2s
+param *.ueD2D[*].energyConsumer.powerConsumption 110mW
+param *.ueD2D[*].energyConsumer.sleepInterval 5s
+param *.ueD2D[*].energyConsumerType "\"AlternatingEnergyConsumerSimuLTE\""
+param *.ueD2D[*].energyStorageType "\"IdealEnergyStorage\""
+param *.ueD2D[*].hasStatus true
+param *.ueD2D[*].numUdpApps 1
+param *.ueD2D[0..2].energyConsumer.transmittingPowerConsumption 0mW
+param *.ueD2D[0..2].udpApp[*].localPort 1000
+param *.ueD2D[0..2].udpApp[*].typename "\"AlertReceiver\""
+param *.ueD2D[15].energyConsumer.transmittingPowerConsumption 340mW
+param *.ueD2D[15].udpApp[*].destAddress "\"224.0.0.10\""
+param *.ueD2D[15].udpApp[*].destPort 1000
+param *.ueD2D[15].udpApp[*].localPort 3088+ancestorIndex(0)
+param *.ueD2D[15].udpApp[*].startTime uniform(0s,0.02s)
+param *.ueD2D[15].udpApp[*].typename "\"AlertSender\""
+param *.ueD2D[16..24].energyConsumer.transmittingPowerConsumption 0mW
+param *.ueD2D[16..24].udpApp[*].localPort 1000
+param *.ueD2D[16..24].udpApp[*].typename "\"AlertReceiver\""
+param *.ueD2D[25].energyConsumer.transmittingPowerConsumption 340mW
+param *.ueD2D[25].udpApp[*].destAddress "\"224.0.0.10\""
+param *.ueD2D[25].udpApp[*].destPort 1000
+param *.ueD2D[25].udpApp[*].localPort 3088+ancestorIndex(0)
+param *.ueD2D[25].udpApp[*].startTime uniform(0s,0.02s)
+param *.ueD2D[25].udpApp[*].typename "\"AlertSender\""
+param *.ueD2D[26..29].energyConsumer.transmittingPowerConsumption 0mW
+param *.ueD2D[26..29].udpApp[*].localPort 1000
+param *.ueD2D[26..29].udpApp[*].typename "\"AlertReceiver\""
+param *.ueD2D[3..7].energyConsumer.transmittingPowerConsumption 0mW
+param *.ueD2D[3..7].udpApp[*].localPort 1000
+param *.ueD2D[3..7].udpApp[*].typename "\"AlertReceiver\""
+param *.ueD2D[8].energyConsumer.transmittingPowerConsumption 340mW
+param *.ueD2D[8].udpApp[*].destAddress "\"224.0.0.10\""
+param *.ueD2D[8].udpApp[*].destPort 1000
+param *.ueD2D[8].udpApp[*].localPort 3088+ancestorIndex(0)
+param *.ueD2D[8].udpApp[*].startTime uniform(0s,0.02s)
+param *.ueD2D[8].udpApp[*].typename "\"AlertSender\""
+param *.ueD2D[9..14].energyConsumer.transmittingPowerConsumption 0mW
+param *.ueD2D[9..14].udpApp[*].localPort 1000
+param *.ueD2D[9..14].udpApp[*].typename "\"AlertReceiver\""
+
+vector 8  SingleCell_D2DMulticast.server.ppp[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 9  SingleCell_D2DMulticast.server.ppp[0].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 24  SingleCell_D2DMulticast.router.ppp[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 25  SingleCell_D2DMulticast.router.ppp[0].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 35  SingleCell_D2DMulticast.router.ppp[1].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 36  SingleCell_D2DMulticast.router.ppp[1].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 56  SingleCell_D2DMulticast.pgw.ppp[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 57  SingleCell_D2DMulticast.pgw.ppp[0].ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 67  SingleCell_D2DMulticast.pgw.pppInterface.queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 68  SingleCell_D2DMulticast.pgw.pppInterface.ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 95  SingleCell_D2DMulticast.eNodeB.ppp.queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 96  SingleCell_D2DMulticast.eNodeB.ppp.ppp  txState:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "tx state, vector"
+vector 112  SingleCell_D2DMulticast.ueD2D[0].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 115  SingleCell_D2DMulticast.ueD2D[0].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 138  SingleCell_D2DMulticast.ueD2D[1].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 141  SingleCell_D2DMulticast.ueD2D[1].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 164  SingleCell_D2DMulticast.ueD2D[2].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 167  SingleCell_D2DMulticast.ueD2D[2].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 190  SingleCell_D2DMulticast.ueD2D[3].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 193  SingleCell_D2DMulticast.ueD2D[3].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 216  SingleCell_D2DMulticast.ueD2D[4].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 219  SingleCell_D2DMulticast.ueD2D[4].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 242  SingleCell_D2DMulticast.ueD2D[5].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 245  SingleCell_D2DMulticast.ueD2D[5].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 268  SingleCell_D2DMulticast.ueD2D[6].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 271  SingleCell_D2DMulticast.ueD2D[6].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 294  SingleCell_D2DMulticast.ueD2D[7].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 297  SingleCell_D2DMulticast.ueD2D[7].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 319  SingleCell_D2DMulticast.ueD2D[8].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 322  SingleCell_D2DMulticast.ueD2D[8].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 345  SingleCell_D2DMulticast.ueD2D[9].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 348  SingleCell_D2DMulticast.ueD2D[9].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 371  SingleCell_D2DMulticast.ueD2D[10].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 374  SingleCell_D2DMulticast.ueD2D[10].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 397  SingleCell_D2DMulticast.ueD2D[11].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 400  SingleCell_D2DMulticast.ueD2D[11].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 423  SingleCell_D2DMulticast.ueD2D[12].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 426  SingleCell_D2DMulticast.ueD2D[12].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 449  SingleCell_D2DMulticast.ueD2D[13].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 452  SingleCell_D2DMulticast.ueD2D[13].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 475  SingleCell_D2DMulticast.ueD2D[14].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 478  SingleCell_D2DMulticast.ueD2D[14].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 500  SingleCell_D2DMulticast.ueD2D[15].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 503  SingleCell_D2DMulticast.ueD2D[15].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 526  SingleCell_D2DMulticast.ueD2D[16].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 529  SingleCell_D2DMulticast.ueD2D[16].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 552  SingleCell_D2DMulticast.ueD2D[17].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 555  SingleCell_D2DMulticast.ueD2D[17].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 578  SingleCell_D2DMulticast.ueD2D[18].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 581  SingleCell_D2DMulticast.ueD2D[18].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 604  SingleCell_D2DMulticast.ueD2D[19].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 607  SingleCell_D2DMulticast.ueD2D[19].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 630  SingleCell_D2DMulticast.ueD2D[20].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 633  SingleCell_D2DMulticast.ueD2D[20].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 656  SingleCell_D2DMulticast.ueD2D[21].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 659  SingleCell_D2DMulticast.ueD2D[21].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 682  SingleCell_D2DMulticast.ueD2D[22].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 685  SingleCell_D2DMulticast.ueD2D[22].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 708  SingleCell_D2DMulticast.ueD2D[23].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 711  SingleCell_D2DMulticast.ueD2D[23].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 734  SingleCell_D2DMulticast.ueD2D[24].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 737  SingleCell_D2DMulticast.ueD2D[24].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 759  SingleCell_D2DMulticast.ueD2D[25].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 762  SingleCell_D2DMulticast.ueD2D[25].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 785  SingleCell_D2DMulticast.ueD2D[26].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 788  SingleCell_D2DMulticast.ueD2D[26].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 811  SingleCell_D2DMulticast.ueD2D[27].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 814  SingleCell_D2DMulticast.ueD2D[27].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 837  SingleCell_D2DMulticast.ueD2D[28].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 840  SingleCell_D2DMulticast.ueD2D[28].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 863  SingleCell_D2DMulticast.ueD2D[29].energyStorage  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 866  SingleCell_D2DMulticast.ueD2D[29].energyConsumer  powerConsumption:vector  ETV
+attr interpolationmode  sample-hold
+attr source  powerConsumptionChanged
+attr title  "Power consumption, vector"
+vector 313  SingleCell_D2DMulticast.ueD2D[8].udpApp[0]  alertSentMsg:vector  ETV
+attr source  alertSentMsg
+attr title  "Alert messages sent, vector"
+attr unit  ""
+vector 314  SingleCell_D2DMulticast.ueD2D[8].udp  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 323  SingleCell_D2DMulticast.ueD2D[8].nic.pdcpRrc  receivedPacketFromUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromUpperLayer
+vector 326  SingleCell_D2DMulticast.ueD2D[8].nic.pdcpRrc  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 327  SingleCell_D2DMulticast.ueD2D[8].nic.mac  receivedPacketFromUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromUpperLayer
+vector 330  SingleCell_D2DMulticast.ueD2D[8].nic.mac  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 85  SingleCell_D2DMulticast.eNodeB.nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 87  SingleCell_D2DMulticast.eNodeB.nic.mac  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 328  SingleCell_D2DMulticast.ueD2D[8].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 90  SingleCell_D2DMulticast.eNodeB.nic.phy  averageCqiUlvect:vector  ETV
+attr source  averageCqiUlvect
+attr title  "Average Cqi reported in UL, vector"
+attr unit  cqi
+vector 753  SingleCell_D2DMulticast.ueD2D[25].udpApp[0]  alertSentMsg:vector  ETV
+attr source  alertSentMsg
+attr title  "Alert messages sent, vector"
+attr unit  ""
+vector 754  SingleCell_D2DMulticast.ueD2D[25].udp  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 763  SingleCell_D2DMulticast.ueD2D[25].nic.pdcpRrc  receivedPacketFromUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromUpperLayer
+vector 766  SingleCell_D2DMulticast.ueD2D[25].nic.pdcpRrc  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 767  SingleCell_D2DMulticast.ueD2D[25].nic.mac  receivedPacketFromUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromUpperLayer
+vector 88  SingleCell_D2DMulticast.eNodeB.nic.mac  measuredItbs:vector  ETV
+attr source  measuredItbs
+attr title  "TBS index, vector"
+attr unit  ""
+vector 770  SingleCell_D2DMulticast.ueD2D[25].nic.mac  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 494  SingleCell_D2DMulticast.ueD2D[15].udpApp[0]  alertSentMsg:vector  ETV
+attr source  alertSentMsg
+attr title  "Alert messages sent, vector"
+attr unit  ""
+vector 495  SingleCell_D2DMulticast.ueD2D[15].udp  sentPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPk
+attr title  "packets sent, vector(packetBytes)"
+vector 504  SingleCell_D2DMulticast.ueD2D[15].nic.pdcpRrc  receivedPacketFromUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromUpperLayer
+vector 507  SingleCell_D2DMulticast.ueD2D[15].nic.pdcpRrc  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 508  SingleCell_D2DMulticast.ueD2D[15].nic.mac  receivedPacketFromUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromUpperLayer
+vector 329  SingleCell_D2DMulticast.ueD2D[8].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 511  SingleCell_D2DMulticast.ueD2D[15].nic.mac  sentPacketToLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToLowerLayer
+vector 768  SingleCell_D2DMulticast.ueD2D[25].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 121  SingleCell_D2DMulticast.ueD2D[0].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 147  SingleCell_D2DMulticast.ueD2D[1].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 173  SingleCell_D2DMulticast.ueD2D[2].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 199  SingleCell_D2DMulticast.ueD2D[3].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 225  SingleCell_D2DMulticast.ueD2D[4].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 251  SingleCell_D2DMulticast.ueD2D[5].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 277  SingleCell_D2DMulticast.ueD2D[6].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 303  SingleCell_D2DMulticast.ueD2D[7].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 354  SingleCell_D2DMulticast.ueD2D[9].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 380  SingleCell_D2DMulticast.ueD2D[10].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 406  SingleCell_D2DMulticast.ueD2D[11].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 432  SingleCell_D2DMulticast.ueD2D[12].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 458  SingleCell_D2DMulticast.ueD2D[13].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 484  SingleCell_D2DMulticast.ueD2D[14].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 509  SingleCell_D2DMulticast.ueD2D[15].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 535  SingleCell_D2DMulticast.ueD2D[16].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 561  SingleCell_D2DMulticast.ueD2D[17].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 587  SingleCell_D2DMulticast.ueD2D[18].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 613  SingleCell_D2DMulticast.ueD2D[19].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 639  SingleCell_D2DMulticast.ueD2D[20].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 665  SingleCell_D2DMulticast.ueD2D[21].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 691  SingleCell_D2DMulticast.ueD2D[22].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 717  SingleCell_D2DMulticast.ueD2D[23].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 743  SingleCell_D2DMulticast.ueD2D[24].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 794  SingleCell_D2DMulticast.ueD2D[26].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 820  SingleCell_D2DMulticast.ueD2D[27].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 846  SingleCell_D2DMulticast.ueD2D[28].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 872  SingleCell_D2DMulticast.ueD2D[29].nic.mac  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 148  SingleCell_D2DMulticast.ueD2D[1].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 143  SingleCell_D2DMulticast.ueD2D[1].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 144  SingleCell_D2DMulticast.ueD2D[1].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 134  SingleCell_D2DMulticast.ueD2D[1].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 135  SingleCell_D2DMulticast.ueD2D[1].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 131  SingleCell_D2DMulticast.ueD2D[1].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 132  SingleCell_D2DMulticast.ueD2D[1].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 174  SingleCell_D2DMulticast.ueD2D[2].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 169  SingleCell_D2DMulticast.ueD2D[2].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 170  SingleCell_D2DMulticast.ueD2D[2].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 160  SingleCell_D2DMulticast.ueD2D[2].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 161  SingleCell_D2DMulticast.ueD2D[2].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 157  SingleCell_D2DMulticast.ueD2D[2].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 158  SingleCell_D2DMulticast.ueD2D[2].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 200  SingleCell_D2DMulticast.ueD2D[3].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 195  SingleCell_D2DMulticast.ueD2D[3].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 196  SingleCell_D2DMulticast.ueD2D[3].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 186  SingleCell_D2DMulticast.ueD2D[3].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 187  SingleCell_D2DMulticast.ueD2D[3].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 183  SingleCell_D2DMulticast.ueD2D[3].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 184  SingleCell_D2DMulticast.ueD2D[3].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 355  SingleCell_D2DMulticast.ueD2D[9].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 350  SingleCell_D2DMulticast.ueD2D[9].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 351  SingleCell_D2DMulticast.ueD2D[9].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 341  SingleCell_D2DMulticast.ueD2D[9].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 342  SingleCell_D2DMulticast.ueD2D[9].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 338  SingleCell_D2DMulticast.ueD2D[9].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 339  SingleCell_D2DMulticast.ueD2D[9].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 381  SingleCell_D2DMulticast.ueD2D[10].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 376  SingleCell_D2DMulticast.ueD2D[10].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 377  SingleCell_D2DMulticast.ueD2D[10].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 367  SingleCell_D2DMulticast.ueD2D[10].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 368  SingleCell_D2DMulticast.ueD2D[10].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 364  SingleCell_D2DMulticast.ueD2D[10].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 365  SingleCell_D2DMulticast.ueD2D[10].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 562  SingleCell_D2DMulticast.ueD2D[17].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 557  SingleCell_D2DMulticast.ueD2D[17].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 558  SingleCell_D2DMulticast.ueD2D[17].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 548  SingleCell_D2DMulticast.ueD2D[17].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 549  SingleCell_D2DMulticast.ueD2D[17].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 545  SingleCell_D2DMulticast.ueD2D[17].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 546  SingleCell_D2DMulticast.ueD2D[17].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 588  SingleCell_D2DMulticast.ueD2D[18].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 583  SingleCell_D2DMulticast.ueD2D[18].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 584  SingleCell_D2DMulticast.ueD2D[18].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 574  SingleCell_D2DMulticast.ueD2D[18].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 575  SingleCell_D2DMulticast.ueD2D[18].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 571  SingleCell_D2DMulticast.ueD2D[18].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 572  SingleCell_D2DMulticast.ueD2D[18].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 614  SingleCell_D2DMulticast.ueD2D[19].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 609  SingleCell_D2DMulticast.ueD2D[19].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 610  SingleCell_D2DMulticast.ueD2D[19].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 600  SingleCell_D2DMulticast.ueD2D[19].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 601  SingleCell_D2DMulticast.ueD2D[19].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 597  SingleCell_D2DMulticast.ueD2D[19].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 598  SingleCell_D2DMulticast.ueD2D[19].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 666  SingleCell_D2DMulticast.ueD2D[21].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 661  SingleCell_D2DMulticast.ueD2D[21].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 662  SingleCell_D2DMulticast.ueD2D[21].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 652  SingleCell_D2DMulticast.ueD2D[21].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 653  SingleCell_D2DMulticast.ueD2D[21].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 649  SingleCell_D2DMulticast.ueD2D[21].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 650  SingleCell_D2DMulticast.ueD2D[21].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 718  SingleCell_D2DMulticast.ueD2D[23].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 713  SingleCell_D2DMulticast.ueD2D[23].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 714  SingleCell_D2DMulticast.ueD2D[23].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 704  SingleCell_D2DMulticast.ueD2D[23].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 705  SingleCell_D2DMulticast.ueD2D[23].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 701  SingleCell_D2DMulticast.ueD2D[23].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 702  SingleCell_D2DMulticast.ueD2D[23].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 769  SingleCell_D2DMulticast.ueD2D[25].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 764  SingleCell_D2DMulticast.ueD2D[25].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 765  SingleCell_D2DMulticast.ueD2D[25].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 755  SingleCell_D2DMulticast.ueD2D[25].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 757  SingleCell_D2DMulticast.ueD2D[25].udp  droppedPkWrongPort:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), vector(count)"
+vector 795  SingleCell_D2DMulticast.ueD2D[26].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 790  SingleCell_D2DMulticast.ueD2D[26].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 791  SingleCell_D2DMulticast.ueD2D[26].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 781  SingleCell_D2DMulticast.ueD2D[26].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 782  SingleCell_D2DMulticast.ueD2D[26].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 778  SingleCell_D2DMulticast.ueD2D[26].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 779  SingleCell_D2DMulticast.ueD2D[26].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 873  SingleCell_D2DMulticast.ueD2D[29].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 868  SingleCell_D2DMulticast.ueD2D[29].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 869  SingleCell_D2DMulticast.ueD2D[29].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 859  SingleCell_D2DMulticast.ueD2D[29].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 860  SingleCell_D2DMulticast.ueD2D[29].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 856  SingleCell_D2DMulticast.ueD2D[29].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 857  SingleCell_D2DMulticast.ueD2D[29].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 510  SingleCell_D2DMulticast.ueD2D[15].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 226  SingleCell_D2DMulticast.ueD2D[4].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 221  SingleCell_D2DMulticast.ueD2D[4].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 222  SingleCell_D2DMulticast.ueD2D[4].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 212  SingleCell_D2DMulticast.ueD2D[4].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 213  SingleCell_D2DMulticast.ueD2D[4].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 209  SingleCell_D2DMulticast.ueD2D[4].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 210  SingleCell_D2DMulticast.ueD2D[4].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 505  SingleCell_D2DMulticast.ueD2D[15].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 506  SingleCell_D2DMulticast.ueD2D[15].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 496  SingleCell_D2DMulticast.ueD2D[15].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 498  SingleCell_D2DMulticast.ueD2D[15].udp  droppedPkWrongPort:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), vector(count)"
+vector 692  SingleCell_D2DMulticast.ueD2D[22].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 687  SingleCell_D2DMulticast.ueD2D[22].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 688  SingleCell_D2DMulticast.ueD2D[22].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 678  SingleCell_D2DMulticast.ueD2D[22].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 679  SingleCell_D2DMulticast.ueD2D[22].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 675  SingleCell_D2DMulticast.ueD2D[22].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 676  SingleCell_D2DMulticast.ueD2D[22].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 459  SingleCell_D2DMulticast.ueD2D[13].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 454  SingleCell_D2DMulticast.ueD2D[13].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 455  SingleCell_D2DMulticast.ueD2D[13].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 445  SingleCell_D2DMulticast.ueD2D[13].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 446  SingleCell_D2DMulticast.ueD2D[13].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 442  SingleCell_D2DMulticast.ueD2D[13].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 443  SingleCell_D2DMulticast.ueD2D[13].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 304  SingleCell_D2DMulticast.ueD2D[7].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 299  SingleCell_D2DMulticast.ueD2D[7].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 300  SingleCell_D2DMulticast.ueD2D[7].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 290  SingleCell_D2DMulticast.ueD2D[7].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 291  SingleCell_D2DMulticast.ueD2D[7].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 287  SingleCell_D2DMulticast.ueD2D[7].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 288  SingleCell_D2DMulticast.ueD2D[7].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 324  SingleCell_D2DMulticast.ueD2D[8].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 325  SingleCell_D2DMulticast.ueD2D[8].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 315  SingleCell_D2DMulticast.ueD2D[8].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 317  SingleCell_D2DMulticast.ueD2D[8].udp  droppedPkWrongPort:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets dropped (wrong port), vector(count)"
+vector 114  SingleCell_D2DMulticast.ueD2D[0].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 140  SingleCell_D2DMulticast.ueD2D[1].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 166  SingleCell_D2DMulticast.ueD2D[2].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 192  SingleCell_D2DMulticast.ueD2D[3].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 218  SingleCell_D2DMulticast.ueD2D[4].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 244  SingleCell_D2DMulticast.ueD2D[5].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 270  SingleCell_D2DMulticast.ueD2D[6].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 296  SingleCell_D2DMulticast.ueD2D[7].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 321  SingleCell_D2DMulticast.ueD2D[8].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 347  SingleCell_D2DMulticast.ueD2D[9].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 373  SingleCell_D2DMulticast.ueD2D[10].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 399  SingleCell_D2DMulticast.ueD2D[11].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 425  SingleCell_D2DMulticast.ueD2D[12].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 451  SingleCell_D2DMulticast.ueD2D[13].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 477  SingleCell_D2DMulticast.ueD2D[14].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 502  SingleCell_D2DMulticast.ueD2D[15].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 528  SingleCell_D2DMulticast.ueD2D[16].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 554  SingleCell_D2DMulticast.ueD2D[17].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 580  SingleCell_D2DMulticast.ueD2D[18].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 606  SingleCell_D2DMulticast.ueD2D[19].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 632  SingleCell_D2DMulticast.ueD2D[20].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 658  SingleCell_D2DMulticast.ueD2D[21].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 684  SingleCell_D2DMulticast.ueD2D[22].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 710  SingleCell_D2DMulticast.ueD2D[23].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 736  SingleCell_D2DMulticast.ueD2D[24].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 761  SingleCell_D2DMulticast.ueD2D[25].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 787  SingleCell_D2DMulticast.ueD2D[26].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 813  SingleCell_D2DMulticast.ueD2D[27].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 839  SingleCell_D2DMulticast.ueD2D[28].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 865  SingleCell_D2DMulticast.ueD2D[29].energyStorage  residualCapacity:vector  ETV
+attr interpolationmode  linear
+attr source  residualCapacityChanged
+attr title  "Residual capacity, vector"
+vector 744  SingleCell_D2DMulticast.ueD2D[24].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 739  SingleCell_D2DMulticast.ueD2D[24].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 740  SingleCell_D2DMulticast.ueD2D[24].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 730  SingleCell_D2DMulticast.ueD2D[24].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 731  SingleCell_D2DMulticast.ueD2D[24].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 727  SingleCell_D2DMulticast.ueD2D[24].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 728  SingleCell_D2DMulticast.ueD2D[24].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+vector 640  SingleCell_D2DMulticast.ueD2D[20].nic.mac  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 635  SingleCell_D2DMulticast.ueD2D[20].nic.pdcpRrc  receivedPacketFromLowerLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  receivedPacketFromLowerLayer
+vector 636  SingleCell_D2DMulticast.ueD2D[20].nic.pdcpRrc  sentPacketToUpperLayer:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  sentPacketToUpperLayer
+vector 626  SingleCell_D2DMulticast.ueD2D[20].udp  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  rcvdPk
+attr title  "packets received, vector(packetBytes)"
+vector 627  SingleCell_D2DMulticast.ueD2D[20].udp  passedUpPk:vector(count)  ETV
+attr interpolationmode  none
+attr title  "packets passed up, vector(count)"
+vector 623  SingleCell_D2DMulticast.ueD2D[20].udpApp[0]  alertDelay:vector  ETV
+attr source  alertDelay
+attr title  "Alert Message Delay, vector"
+attr unit  s
+vector 624  SingleCell_D2DMulticast.ueD2D[20].udpApp[0]  alertRcvdMsg:vector  ETV
+attr source  alertRcvdMsg
+attr title  "Alert Messages Received, vector"
+attr unit  s
+8	56938 8 0 0 0 0 1 0 0 0 0
+9	56946 8 0 0 0 0 1 0 0 0 0
+24	56954 9 0 0 0 0 1 0 0 0 0
+25	56963 9 0 0 0 0 1 0 0 0 0
+35	56972 9 0 0 0 0 1 0 0 0 0
+36	56981 9 0 0 0 0 1 0 0 0 0
+56	56990 9 0 0 0 0 1 0 0 0 0
+57	56999 9 0 0 0 0 1 0 0 0 0
+67	57008 9 0 0 0 0 1 0 0 0 0
+68	57017 9 0 0 0 0 1 0 0 0 0
+85	57026 3169264 329 2441643 0.002 29.782 166803 0 0 0 0
+87	3226290 685498 389 2441733 0.002 29.783 35764 0 0 0 0
+88	3911788 174074 727 2441608 0.009 29.782 8906 2 26 104048 2167892
+90	4085862 174731 557 2441606 0.006 29.781 8941 3 15 68549 771877
+95	4260593 9 0 0 0 0 1 0 0 0 0
+96	4260602 9 0 0 0 0 1 0 0 0 0
+112	4260611 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+114	4260623 162 163882 2295456 2 28 8 -0.88 -0.22 -4.4 2.904
+115	4260785 155 0 2295456 0 28 9 0 0.11 0.55 0.0605
+121	4260940 88455 955 2441676 0.012 29.782 4467 0 0 0 0
+131	4349395 59000 1187 2441743 0.015 29.783 2435 0.007 0.019 34.101999999999 0.47799199999997
+132	4408395 49260 1187 2441743 0.015 29.783 2435 1 1 2435 2435
+134	4457655 51695 1186 2441742 0.015 29.783 2435 18 18 43830 788940
+135	4509350 55458 1186 2441742 0.015 29.783 2435 1 2435 2965830 4815519310
+138	4564808 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+140	4564820 162 163883 2295457 2 28 8 -0.88 -0.22 -4.4 2.904
+141	4564982 155 0 2295457 0 28 9 0 0.11 0.55 0.0605
+143	4565137 51695 1183 2441739 0.015 29.783 2435 39 39 94965 3703635
+144	4616832 51695 1183 2441739 0.015 29.783 2435 38 38 92530 3516140
+147	4668527 88455 957 2441678 0.012 29.782 4467 0 0 0 0
+148	4756982 51695 1180 2441736 0.015 29.783 2435 41 41 99835 4093235
+157	4808677 58901 1195 2441751 0.015 29.783 2432 0.007 0.019 34.054999999999 0.47723899999997
+158	4867578 49173 1195 2441751 0.015 29.783 2432 1 1 2432 2432
+160	4916751 51605 1194 2441750 0.015 29.783 2432 18 18 43776 787968
+161	4968356 55362 1194 2441750 0.015 29.783 2432 1 2432 2958528 4797746240
+164	5023718 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+166	5023730 162 163884 2295458 2 28 8 -0.88 -0.22 -4.4 2.904
+167	5023892 155 0 2295458 0 28 9 0 0.11 0.55 0.0605
+169	5024047 51605 1191 2441747 0.015 29.783 2432 39 39 94848 3699072
+170	5075652 51605 1191 2441747 0.015 29.783 2432 38 38 92416 3511808
+173	5127257 88455 959 2441680 0.012 29.782 4467 0 0 0 0
+174	5215712 51605 1188 2441744 0.015 29.783 2432 41 41 99712 4088192
+183	5267317 37447 1203 2441057 0.015 29.775 1547 0.007 0.019 21.663999999999 0.30357799999999
+184	5304764 31259 1203 2441057 0.015 29.775 1547 1 1 1547 1547
+186	5336023 32806 1202 2441056 0.015 29.775 1547 18 18 27846 501228
+187	5368829 34793 1202 2441056 0.015 29.775 1547 1 1547 1197378 1235294970
+190	5403622 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+192	5403634 162 163885 2295459 2 28 8 -0.88 -0.22 -4.4 2.904
+193	5403796 155 0 2295459 0 28 9 0 0.11 0.55 0.0605
+195	5403951 32806 1199 2441053 0.015 29.775 1547 39 39 60333 2352987
+196	5436757 32806 1199 2441053 0.015 29.775 1547 38 38 58786 2233868
+199	5469563 88455 961 2441682 0.012 29.782 4467 0 0 0 0
+200	5558018 32806 1196 2441050 0.015 29.775 1547 41 41 63427 2600507
+209	5590824 83602 1905 2441760 0.023 29.783 3453 0.007 0.019 48.360000000002 0.67788599999995
+210	5674426 69790 1905 2441760 0.023 29.783 3453 1 1 3453 3453
+212	5744216 73243 1904 2441759 0.023 29.783 3453 18 18 62154 1118772
+213	5817459 79042 1904 2441759 0.023 29.783 3453 1 3453 5963331 13729575739
+216	5896501 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+218	5896513 162 163886 2295460 2 28 8 -0.88 -0.22 -4.4 2.904
+219	5896675 155 0 2295460 0 28 9 0 0.11 0.55 0.0605
+221	5896830 73243 1901 2441756 0.023 29.783 3453 39 39 134667 5252013
+222	5970073 73243 1901 2441756 0.023 29.783 3453 38 38 131214 4986132
+225	6043316 88456 963 2441684 0.012 29.782 4467 0 0 0 0
+226	6131772 73243 1898 2441753 0.023 29.783 3453 41 41 141573 5804493
+242	6205015 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+244	6205027 162 163887 2295461 2 28 8 -0.88 -0.22 -4.4 2.904
+245	6205189 155 0 2295461 0 28 9 0 0.11 0.55 0.0605
+251	6205344 88456 965 2441686 0.012 29.782 4467 0 0 0 0
+268	6293800 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+270	6293812 162 163888 2295462 2 28 8 -0.88 -0.22 -4.4 2.904
+271	6293974 155 0 2295462 0 28 9 0 0.11 0.55 0.0605
+277	6294129 88456 967 2441688 0.012 29.782 4467 0 0 0 0
+287	6382585 14066 5371 2440283 0.065 29.765 581 0.007 0.019 8.132 0.113894
+288	6396651 11742 5371 2440283 0.065 29.765 581 1 1 581 581
+290	6408393 12323 5370 2440282 0.065 29.765 581 18 18 10458 188244
+291	6420716 12796 5370 2440282 0.065 29.765 581 1 581 169071 65543191
+294	6433512 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+296	6433524 162 163889 2295463 2 28 8 -0.88 -0.22 -4.4 2.904
+297	6433686 155 0 2295463 0 28 9 0 0.11 0.55 0.0605
+299	6433841 12323 5367 2440279 0.065 29.765 581 39 39 22659 883701
+300	6446164 12323 5367 2440279 0.065 29.765 581 38 38 22078 838964
+303	6458487 88456 969 2441690 0.012 29.782 4467 0 0 0 0
+304	6546943 12323 5364 2440276 0.065 29.765 581 41 41 23821 976661
+313	6559266 30111 225 2441559 0.001 29.781 1490 1 1 1490 1490
+314	6589377 31601 256 2441560 0.001 29.781 1490 18 18 26820 482760
+315	6620978 8521 13456 2441770 0.163 29.783 401 18 18 7218 129924
+317	6629499 8814 13456 2441770 0.163 29.783 401 1 401 80601 21574201
+319	6638313 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+321	6638325 155 163890 2295464 2 28 8 -10.4 -0.9 -45.2 328.76
+322	6638480 167 0 2295464 0 28 9 0.34 0.45 3.61 1.4749
+323	6638647 31601 259 2441563 0.001 29.781 1490 38 38 56620 2151560
+324	6670248 8521 13453 2441767 0.163 29.783 401 39 39 15639 609921
+325	6678769 8521 13453 2441767 0.163 29.783 401 38 38 15238 579044
+326	6687290 31601 259 2441563 0.001 29.781 1490 39 39 58110 2266290
+327	6718891 63181 262 2441566 0.001 29.781 2979 39 41 119159 4769299
+328	6782072 296277 425 2441692 0.003 29.782 14898 0 0 0 0
+329	7078349 38612 823 2441764 0.011 29.783 1890 0 41 16441 674081
+330	7116961 149064 272 2441576 0.001 29.781 7450 0 0 0 0
+338	7266025 74937 1216 2441778 0.015 29.783 3096 0.007 0.019 43.350000000001 0.60760199999995
+339	7340962 62553 1216 2441778 0.015 29.783 3096 1 1 3096 3096
+341	7403515 65649 1215 2441777 0.015 29.783 3096 18 18 55728 1003104
+342	7469164 70734 1215 2441777 0.015 29.783 3096 1 3096 4794156 9896736036
+345	7539898 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+347	7539910 162 163891 2295465 2 28 8 -0.88 -0.22 -4.4 2.904
+348	7540072 155 0 2295465 0 28 9 0 0.11 0.55 0.0605
+350	7540227 65649 1212 2441774 0.015 29.783 3096 39 39 120744 4709016
+351	7605876 65649 1212 2441774 0.015 29.783 3096 38 38 117648 4470624
+354	7671525 88456 971 2441694 0.012 29.782 4467 0 0 0 0
+355	7759981 65649 1209 2441771 0.015 29.783 3096 41 41 126936 5204376
+364	7825630 26402 1224 2441071 0.015 29.775 1091 0.007 0.019 15.282 0.214184
+365	7852032 22038 1224 2441071 0.015 29.775 1091 1 1 1091 1091
+367	7874070 23129 1223 2441070 0.015 29.775 1091 18 18 19638 353484
+368	7897199 24204 1223 2441070 0.015 29.775 1091 1 1091 595686 433460846
+371	7921403 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+373	7921415 162 163892 2295466 2 28 8 -0.88 -0.22 -4.4 2.904
+374	7921577 155 0 2295466 0 28 9 0 0.11 0.55 0.0605
+376	7921732 23129 1220 2441067 0.015 29.775 1091 39 39 42549 1659411
+377	7944861 23129 1220 2441067 0.015 29.775 1091 38 38 41458 1575404
+380	7967990 88456 973 2441696 0.012 29.782 4467 0 0 0 0
+381	8056446 23129 1217 2441064 0.015 29.775 1091 41 41 44731 1833971
+397	8079575 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+399	8079587 162 163893 2295467 2 28 8 -0.88 -0.22 -4.4 2.904
+400	8079749 155 0 2295467 0 28 9 0 0.11 0.55 0.0605
+406	8079904 88456 975 2441698 0.012 29.782 4467 0 0 0 0
+423	8168360 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+425	8168372 162 163894 2295468 2 28 8 -0.88 -0.22 -4.4 2.904
+426	8168534 155 0 2295468 0 28 9 0 0.11 0.55 0.0605
+432	8168689 88456 977 2441700 0.012 29.782 4467 0 0 0 0
+442	8257145 28627 2111 2440303 0.025 29.765 1183 0.007 0.019 16.553 0.231739
+443	8285772 23895 2111 2440303 0.025 29.765 1183 1 1 1183 1183
+445	8309667 25078 2110 2440302 0.025 29.765 1183 18 18 21294 383292
+446	8334745 26337 2110 2440302 0.025 29.765 1183 1 1183 700336 552565104
+449	8361082 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+451	8361094 162 163895 2295469 2 28 8 -0.88 -0.22 -4.4 2.904
+452	8361256 155 0 2295469 0 28 9 0 0.11 0.55 0.0605
+454	8361411 25078 2107 2440299 0.025 29.765 1183 39 39 46137 1799343
+455	8386489 25078 2107 2440299 0.025 29.765 1183 38 38 44954 1708252
+458	8411567 88456 979 2441702 0.012 29.782 4467 0 0 0 0
+459	8500023 25078 2104 2440296 0.025 29.765 1183 41 41 48503 1988623
+475	8525101 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+477	8525113 162 163896 2295470 2 28 8 -0.88 -0.22 -4.4 2.904
+478	8525275 155 0 2295470 0 28 9 0 0.11 0.55 0.0605
+484	8525430 88456 981 2441704 0.012 29.782 4467 0 0 0 0
+494	8613886 30091 805 2440659 0.011 29.771 1489 1 1 1489 1489
+495	8643977 31580 806 2440660 0.011 29.771 1489 18 18 26802 482436
+496	8675557 29186 1929 2441790 0.023 29.783 1375 18 18 24750 445500
+498	8704743 30829 1929 2441790 0.023 29.783 1375 1 1375 946000 867482000
+500	8735572 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+502	8735584 155 163897 2295471 2 28 8 -10.4 -0.9 -45.2 328.76
+503	8735739 167 0 2295471 0 28 9 0.34 0.45 3.61 1.4749
+504	8735906 31580 809 2440663 0.011 29.771 1489 38 38 56582 2150116
+505	8767486 29186 1926 2441787 0.023 29.783 1375 39 39 53625 2091375
+506	8796672 29186 1926 2441787 0.023 29.783 1375 38 38 52250 1985500
+507	8825858 31580 809 2440663 0.011 29.771 1489 39 39 58071 2264769
+508	8857438 63164 812 2441588 0.011 29.781 2978 39 41 119120 4767778
+509	8920602 295398 983 2441532 0.012 29.78 14888 0 0 0 0
+510	9216000 59281 1743 2441784 0.021 29.783 2864 0 41 56375 2311375
+511	9275281 148627 834 2441604 0.011 29.781 7445 0 0 0 0
+526	9423908 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+528	9423920 162 163898 2295472 2 28 8 -0.88 -0.22 -4.4 2.904
+529	9424082 155 0 2295472 0 28 9 0 0.11 0.55 0.0605
+535	9424237 88456 985 2441706 0.012 29.782 4467 0 0 0 0
+545	9512693 35755 1238 2441085 0.015 29.775 1477 0.007 0.019 20.683999999999 0.289858
+546	9548448 29847 1238 2441085 0.015 29.775 1477 1 1 1477 1477
+548	9578295 31324 1237 2441084 0.015 29.775 1477 18 18 26586 478548
+549	9609619 33171 1237 2441084 0.015 29.775 1477 1 1477 1091503 1075130455
+552	9642790 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+554	9642802 162 163899 2295473 2 28 8 -0.88 -0.22 -4.4 2.904
+555	9642964 155 0 2295473 0 28 9 0 0.11 0.55 0.0605
+557	9643119 31324 1234 2441081 0.015 29.775 1477 39 39 57603 2246517
+558	9674443 31324 1234 2441081 0.015 29.775 1477 38 38 56126 2132788
+561	9705767 88456 987 2441708 0.012 29.782 4467 0 0 0 0
+562	9794223 31324 1231 2441078 0.015 29.775 1477 41 41 60557 2482837
+571	9825547 30782 1246 2441093 0.015 29.775 1272 0.007 0.019 17.814 0.249678
+572	9856329 25694 1246 2441093 0.015 29.775 1272 1 1 1272 1272
+574	9882023 26966 1245 2441092 0.015 29.775 1272 18 18 22896 412128
+575	9908989 28403 1245 2441092 0.015 29.775 1272 1 1272 809628 686834420
+578	9937392 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+580	9937404 162 163900 2295474 2 28 8 -0.88 -0.22 -4.4 2.904
+581	9937566 155 0 2295474 0 28 9 0 0.11 0.55 0.0605
+583	9937721 26966 1242 2441089 0.015 29.775 1272 39 39 49608 1934712
+584	9964687 26966 1242 2441089 0.015 29.775 1272 38 38 48336 1836768
+587	9991653 88456 989 2441710 0.012 29.782 4467 0 0 0 0
+588	10080109 26966 1239 2441086 0.015 29.775 1272 41 41 52152 2138232
+597	10107075 27904 1254 2441101 0.015 29.775 1153 0.007 0.019 16.143 0.226189
+598	10134979 23292 1254 2441101 0.015 29.775 1153 1 1 1153 1153
+600	10158271 24445 1253 2441100 0.015 29.775 1153 18 18 20754 373572
+601	10182716 25644 1253 2441100 0.015 29.775 1153 1 1153 665281 511601089
+604	10208360 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+606	10208372 162 163901 2295475 2 28 8 -0.88 -0.22 -4.4 2.904
+607	10208534 155 0 2295475 0 28 9 0 0.11 0.55 0.0605
+609	10208689 24445 1250 2441097 0.015 29.775 1153 39 39 44967 1753713
+610	10233134 24445 1250 2441097 0.015 29.775 1153 38 38 43814 1664932
+613	10257579 88456 991 2441712 0.012 29.782 4467 0 0 0 0
+614	10346035 24445 1247 2441094 0.015 29.775 1153 41 41 47273 1938193
+623	10370480 25 1170087 1170087 14.275 14.275 1 0.014 0.014 0.014 0.000196
+624	10370505 21 1170087 1170087 14.275 14.275 1 1 1 1 1
+626	10370526 22 1170086 1170086 14.275 14.275 1 18 18 18 324
+627	10370548 21 1170086 1170086 14.275 14.275 1 1 1 1 1
+630	10370569 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+632	10370581 162 163902 2295476 2 28 8 -0.88 -0.22 -4.4 2.904
+633	10370743 155 0 2295476 0 28 9 0 0.11 0.55 0.0605
+635	10370898 22 1170083 1170083 14.275 14.275 1 39 39 39 1521
+636	10370920 22 1170083 1170083 14.275 14.275 1 38 38 38 1444
+639	10370942 88456 993 2441714 0.012 29.782 4467 0 0 0 0
+640	10459398 22 1170080 1170080 14.275 14.275 1 41 41 41 1681
+649	10459420 96724 1263 2441110 0.015 29.775 3995 0.007 0.019 55.941000000004 0.78397099999993
+650	10556144 80744 1263 2441110 0.015 29.775 3995 1 1 3995 3995
+652	10636888 84761 1262 2441802 0.015 29.783 3996 18 18 71928 1294704
+653	10721649 91622 1262 2441109 0.015 29.775 3995 1 3995 7982010 21261413970
+656	10813271 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+658	10813283 162 163903 2295477 2 28 8 -0.88 -0.22 -4.4 2.904
+659	10813445 155 0 2295477 0 28 9 0 0.11 0.55 0.0605
+661	10813600 84761 1259 2441799 0.015 29.783 3996 39 39 155844 6077916
+662	10898361 84761 1259 2441799 0.015 29.783 3996 38 38 151848 5770224
+665	10983122 88456 995 2441716 0.012 29.782 4467 0 0 0 0
+666	11071578 84761 1256 2441796 0.015 29.783 3996 41 41 163836 6717276
+675	11156339 81501 1950 2440326 0.023 29.765 3366 0.007 0.019 47.130000000002 0.66052199999995
+676	11237840 68037 1950 2440326 0.023 29.765 3366 1 1 3366 3366
+678	11305877 71403 1949 2440325 0.023 29.765 3366 18 18 60588 1090584
+679	11377280 77028 1949 2440325 0.023 29.765 3366 1 3366 5666661 12717876171
+682	11454308 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+684	11454320 162 163904 2295478 2 28 8 -0.88 -0.22 -4.4 2.904
+685	11454482 155 0 2295478 0 28 9 0 0.11 0.55 0.0605
+687	11454637 71403 1946 2440322 0.023 29.765 3366 39 39 131274 5119686
+688	11526040 71403 1946 2440322 0.023 29.765 3366 38 38 127908 4860504
+691	11597443 88456 997 2441718 0.012 29.782 4467 0 0 0 0
+692	11685899 71403 1943 2440319 0.023 29.765 3366 41 41 138006 5658246
+701	11757302 64838 1272 2441119 0.015 29.775 2679 0.007 0.019 37.526 0.52616399999997
+702	11822140 54122 1272 2441119 0.015 29.775 2679 1 1 2679 2679
+704	11876262 56801 1271 2441118 0.015 29.775 2679 18 18 48222 867996
+705	11933063 61052 1271 2441118 0.015 29.775 2679 1 2679 3589860 6412686580
+708	11994115 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+710	11994127 162 163905 2295479 2 28 8 -0.88 -0.22 -4.4 2.904
+711	11994289 155 0 2295479 0 28 9 0 0.11 0.55 0.0605
+713	11994444 56801 1268 2441115 0.015 29.775 2679 39 39 104481 4074759
+714	12051245 56801 1268 2441115 0.015 29.775 2679 38 38 101802 3868476
+717	12108046 88456 999 2441720 0.012 29.782 4467 0 0 0 0
+718	12196502 56801 1265 2441112 0.015 29.775 2679 41 41 109839 4503399
+727	12253303 171 484893 2354336 5.915 28.715 7 0.014 0.014 0.098 0.001372
+728	12253474 143 484893 2354336 5.915 28.715 7 1 1 7 7
+730	12253617 150 484892 2354335 5.915 28.715 7 18 18 126 2268
+731	12253767 143 484892 2354335 5.915 28.715 7 1 7 28 140
+734	12253910 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+736	12253922 162 163906 2295480 2 28 8 -0.88 -0.22 -4.4 2.904
+737	12254084 155 0 2295480 0 28 9 0 0.11 0.55 0.0605
+739	12254239 150 484889 2354332 5.915 28.715 7 39 39 273 10647
+740	12254389 150 484889 2354332 5.915 28.715 7 38 38 266 10108
+743	12254539 88457 1001 2441722 0.012 29.782 4467 0 0 0 0
+744	12342996 150 484886 2354329 5.915 28.715 7 41 41 287 11767
+753	12343146 30091 719 2440573 0.009 29.769 1489 1 1 1489 1489
+754	12373237 31580 720 2440574 0.009 29.769 1489 18 18 26802 482436
+755	12404817 36414 1280 2440335 0.015 29.765 1717 18 18 30906 556308
+757	12441231 38741 1280 2440335 0.015 29.765 1717 1 1717 1474903 1688763935
+759	12479972 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+761	12479984 155 163907 2295481 2 28 8 -10.4 -0.9 -45.2 328.76
+762	12480139 167 0 2295481 0 28 9 0.34 0.45 3.61 1.4749
+763	12480306 31580 723 2440577 0.009 29.769 1489 38 38 56582 2150116
+764	12511886 36414 1277 2440332 0.015 29.765 1717 39 39 66963 2611557
+765	12548300 36414 1277 2440332 0.015 29.765 1717 38 38 65246 2479348
+766	12584714 31580 723 2440577 0.009 29.769 1489 39 39 58071 2264769
+767	12616294 63161 726 2441361 0.009 29.779 2978 39 41 119120 4767778
+768	12679455 301276 856 2441724 0.011 29.782 14908 0 0 0 0
+769	12980731 66506 1274 2441357 0.015 29.779 3206 0 41 70397 2886277
+770	13047237 150659 755 2441367 0.009 29.779 7455 0 0 0 0
+778	13197896 36021 1288 2441129 0.015 29.775 1488 0.007 0.019 20.837999999999 0.292014
+779	13233917 30069 1288 2441129 0.015 29.775 1488 1 1 1488 1488
+781	13263986 31557 1287 2441128 0.015 29.775 1488 18 18 26784 482112
+782	13295543 33426 1287 2441128 0.015 29.775 1488 1 1488 1107816 1099322744
+785	13328969 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+787	13328981 162 163908 2295482 2 28 8 -0.88 -0.22 -4.4 2.904
+788	13329143 155 0 2295482 0 28 9 0 0.11 0.55 0.0605
+790	13329298 31557 1284 2441125 0.015 29.775 1488 39 39 58032 2263248
+791	13360855 31557 1284 2441125 0.015 29.775 1488 38 38 56544 2148672
+794	13392412 88457 1005 2441726 0.012 29.782 4467 0 0 0 0
+795	13480869 31557 1281 2441122 0.015 29.775 1488 41 41 61008 2501328
+811	13512426 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+813	13512438 162 163909 2295483 2 28 8 -0.88 -0.22 -4.4 2.904
+814	13512600 155 0 2295483 0 28 9 0 0.11 0.55 0.0605
+820	13512755 88457 1007 2441728 0.012 29.782 4467 0 0 0 0
+837	13601212 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+839	13601224 162 163910 2295484 2 28 8 -0.88 -0.22 -4.4 2.904
+840	13601386 155 0 2295484 0 28 9 0 0.11 0.55 0.0605
+846	13601541 88457 1009 2441730 0.012 29.782 4467 0 0 0 0
+856	13689998 79204 1298 2441139 0.015 29.775 3271 0.007 0.019 45.807000000002 0.64204899999995
+857	13769202 66120 1298 2441139 0.015 29.775 3271 1 1 3271 3271
+859	13835322 69391 1297 2441138 0.015 29.775 3271 18 18 58878 1059804
+860	13904713 74826 1297 2441138 0.015 29.775 3271 1 3271 5351356 11671307436
+863	13979539 12 0 0 0 0 1 1.7976931348623e+308 -1.7976931348623e+308 nan nan
+865	13979551 162 163911 2295485 2 28 8 -0.88 -0.22 -4.4 2.904
+866	13979713 155 0 2295485 0 28 9 0 0.11 0.55 0.0605
+868	13979868 69391 1294 2441135 0.015 29.775 3271 39 39 127569 4975191
+869	14049259 69391 1294 2441135 0.015 29.775 3271 38 38 124298 4723324
+872	14118650 88457 1011 2441732 0.012 29.782 4467 0 0 0 0
+873	14207107 69391 1291 2441132 0.015 29.775 3271 41 41 134111 5498551
+85	14276498 578459 2442051 2869165 29.786 35 29230 0 0 0 0
+87	14854957 124939 2441870 2868998 29.784 34.999 6260 0 0 0 0
+88	14979896 31740 2441870 2868998 29.784 34.999 1561 2 26 18207 379129
+90	15011636 31821 2442110 2869040 29.786 34.999 1565 3 15 11991 134973
+114	15043457 40 2459364 2869042 30 35 2 -1.1 -1.1 -2.2 2.42
+115	15043497 37 2459364 2869042 30 35 2 0 0.11 0.11 0.0121
+121	15043534 16096 2442508 2869201 29.792 35 782 0 0 0 0
+131	15059630 10974 2442650 2868710 29.795 34.995 439 0.007 0.019 6.144 0.086062000000001
+132	15070604 9218 2442650 2868710 29.795 34.995 439 1 1 439 439
+134	15079822 9657 2442649 2868709 29.795 34.995 439 18 18 7902 142236
+135	15089479 10535 2442649 2868709 29.795 34.995 439 2436 2874 1165545 3101572315
+140	15100014 40 2459365 2869043 30 35 2 -1.1 -1.1 -2.2 2.42
+141	15100054 37 2459365 2869043 30 35 2 0 0.11 0.11 0.0121
+143	15100091 9657 2442646 2868706 29.795 34.995 439 39 39 17121 667719
+144	15109748 9657 2442646 2868706 29.795 34.995 439 38 38 16682 633916
+147	15119405 16096 2442510 2869203 29.792 35 782 0 0 0 0
+148	15135501 9657 2442643 2868703 29.795 34.995 439 41 41 17999 737959
+157	15145158 10250 2442658 2868718 29.795 34.995 410 0.007 0.014 5.733 0.080213000000001
+158	15155408 8610 2442658 2868718 29.795 34.995 410 1 1 410 410
+160	15164018 9020 2442657 2868717 29.795 34.995 410 18 18 7380 132840
+161	15173038 9840 2442657 2868717 29.795 34.995 410 2433 2842 1081375 2857869945
+166	15182878 40 2459366 2869044 30 35 2 -1.1 -1.1 -2.2 2.42
+167	15182918 37 2459366 2869044 30 35 2 0 0.11 0.11 0.0121
+169	15182955 9020 2442654 2868714 29.795 34.995 410 39 39 15990 623610
+170	15191975 9020 2442654 2868714 29.795 34.995 410 38 38 15580 592040
+173	15200995 16096 2442512 2869205 29.792 35 782 0 0 0 0
+174	15217091 9020 2442651 2868711 29.795 34.995 410 41 41 16810 689210
+183	15226111 6750 2442666 2868726 29.795 34.995 270 0.007 0.014 3.773 0.052773
+184	15232861 5670 2442666 2868726 29.795 34.995 270 1 1 270 270
+186	15238531 5940 2442665 2868725 29.795 34.995 270 18 18 4860 87480
+187	15244471 6480 2442665 2868725 29.795 34.995 270 1548 1817 454275 765957915
+192	15250951 40 2459367 2869045 30 35 2 -1.1 -1.1 -2.2 2.42
+193	15250991 37 2459367 2869045 30 35 2 0 0.11 0.11 0.0121
+195	15251028 5940 2442662 2868722 29.795 34.995 270 39 39 10530 410670
+196	15256968 5940 2442662 2868722 29.795 34.995 270 38 38 10260 389880
+199	15262908 16096 2442514 2869207 29.792 35 782 0 0 0 0
+200	15279004 5940 2442659 2868719 29.795 34.995 270 41 41 11070 453870
+209	15284944 14998 2441949 2867942 29.785 34.985 600 0.007 0.019 8.396 0.117636
+210	15299942 12598 2441949 2867942 29.785 34.985 600 1 1 600 600
+212	15312540 13198 2441948 2867941 29.785 34.985 600 18 18 10800 194400
+213	15325738 14398 2441948 2867941 29.785 34.985 600 3454 4053 2252100 8471257300
+218	15340136 40 2459368 2869046 30 35 2 -1.1 -1.1 -2.2 2.42
+219	15340176 37 2459368 2869046 30 35 2 0 0.11 0.11 0.0121
+221	15340213 13198 2441945 2867938 29.785 34.985 600 39 39 23400 912600
+222	15353411 13198 2441945 2867938 29.785 34.985 600 38 38 22800 866400
+225	15366609 16096 2442516 2869209 29.792 35 782 0 0 0 0
+226	15382705 13198 2441942 2867935 29.785 34.985 600 41 41 24600 1008600
+244	15395903 40 2459369 2869047 30 35 2 -1.1 -1.1 -2.2 2.42
+245	15395943 37 2459369 2869047 30 35 2 0 0.11 0.11 0.0121
+251	15395980 16096 2442518 2869211 29.792 35 782 0 0 0 0
+270	15412076 40 2459370 2869048 30 35 2 -1.1 -1.1 -2.2 2.42
+271	15412116 37 2459370 2869048 30 35 2 0 0.11 0.11 0.0121
+277	15412153 16096 2442520 2869213 29.792 35 782 0 0 0 0
+287	15428249 2524 2446879 2864674 29.845 34.945 101 0.014 0.019 1.419 0.019961
+288	15430773 2120 2446879 2864674 29.845 34.945 101 1 1 101 101
+290	15432893 2221 2446878 2864673 29.845 34.945 101 18 18 1818 32724
+291	15435114 2322 2446878 2864673 29.845 34.945 101 582 682 63832 40427674
+296	15437436 40 2459371 2869049 30 35 2 -1.1 -1.1 -2.2 2.42
+297	15437476 37 2459371 2869049 30 35 2 0 0.11 0.11 0.0121
+299	15437513 2221 2446875 2864670 29.845 34.945 101 39 39 3939 153621
+300	15439734 2221 2446875 2864670 29.845 34.945 101 38 38 3838 145844
+303	15441955 16096 2442522 2869215 29.792 35 782 0 0 0 0
+304	15458051 2221 2446872 2864667 29.845 34.945 101 41 41 4141 169781
+313	15460272 5460 2443181 2867522 29.801 34.981 260 1 1 260 260
+314	15465732 5720 2443182 2867553 29.801 34.981 260 18 18 4680 84240
+315	15471452 1232 2448359 2867823 29.863 34.983 56 18 18 1008 18144
+317	15472684 1288 2448359 2867823 29.863 34.983 56 402 457 24052 10344964
+321	15473972 40 2459372 2869050 30 35 2 -13 -11.3 -24.3 296.69
+322	15474012 40 2459372 2869050 30 35 2 0.34 0.45 0.79 0.3181
+323	15474052 5720 2443185 2867556 29.801 34.981 260 38 38 9880 375440
+324	15479772 1232 2448356 2867820 29.863 34.983 56 39 39 2184 85176
+325	15481004 1232 2448356 2867820 29.863 34.983 56 38 38 2128 80864
+326	15482236 5720 2443185 2867556 29.801 34.981 260 39 39 10140 395460
+327	15487956 11462 2442350 2868350 29.791 34.991 521 39 41 20841 834201
+328	15499418 53859 2441839 2869217 29.783 35 2605 0 0 0 0
+329	15553277 6713 2442346 2868346 29.791 34.991 317 0 41 2296 94136
+330	15559990 27082 2442010 2868374 29.785 34.991 1302 0 0 0 0
+338	15587072 13423 2441961 2867954 29.785 34.985 537 0.007 0.019 7.514 0.105288
+339	15600495 11275 2441961 2867954 29.785 34.985 537 1 1 537 537
+341	15611770 11812 2441960 2867953 29.785 34.985 537 18 18 9666 173988
+342	15623582 12886 2441960 2867953 29.785 34.985 537 3097 3633 1807005 6093476293
+347	15636468 40 2459373 2869051 30 35 2 -1.1 -1.1 -2.2 2.42
+348	15636508 37 2459373 2869051 30 35 2 0 0.11 0.11 0.0121
+350	15636545 11812 2441957 2867950 29.785 34.985 537 39 39 20943 816777
+351	15648357 11812 2441957 2867950 29.785 34.985 537 38 38 20406 775428
+354	15660169 16096 2442524 2869219 29.792 35 782 0 0 0 0
+355	15676265 11812 2441954 2867947 29.785 34.985 537 41 41 22017 902697
+364	15688077 4775 2444329 2868740 29.815 34.995 191 0.007 0.014 2.667 0.037289
+365	15692852 4011 2444329 2868740 29.815 34.995 191 1 1 191 191
+367	15696863 4202 2444328 2868739 29.815 34.995 191 18 18 3438 61884
+368	15701065 4584 2444328 2868739 29.815 34.995 191 1092 1282 226717 269693719
+373	15705649 40 2459374 2869052 30 35 2 -1.1 -1.1 -2.2 2.42
+374	15705689 37 2459374 2869052 30 35 2 0 0.11 0.11 0.0121
+376	15705726 4202 2444325 2868736 29.815 34.995 191 39 39 7449 290511
+377	15709928 4202 2444325 2868736 29.815 34.995 191 38 38 7258 275804
+380	15714130 16096 2442526 2869221 29.792 35 782 0 0 0 0
+381	15730226 4202 2444322 2868733 29.815 34.995 191 41 41 7831 321071
+399	15734428 40 2459375 2869053 30 35 2 -1.1 -1.1 -2.2 2.42
+400	15734468 37 2459375 2869053 30 35 2 0 0.11 0.11 0.0121
+406	15734505 16096 2442528 2869223 29.792 35 782 0 0 0 0
+425	15750601 40 2459376 2869054 30 35 2 -1.1 -1.1 -2.2 2.42
+426	15750641 37 2459376 2869054 30 35 2 0 0.11 0.11 0.0121
+432	15750678 16096 2442530 2869225 29.792 35 782 0 0 0 0
+442	15766774 5325 2441972 2867965 29.785 34.985 213 0.007 0.014 2.975 0.041601
+443	15772099 4473 2441972 2867965 29.785 34.985 213 1 1 213 213
+445	15776572 4686 2441971 2867964 29.785 34.985 213 18 18 3834 69012
+446	15781258 5112 2441971 2867964 29.785 34.985 213 1184 1396 274770 355258582
+451	15786370 40 2459377 2869055 30 35 2 -1.1 -1.1 -2.2 2.42
+452	15786410 37 2459377 2869055 30 35 2 0 0.11 0.11 0.0121
+454	15786447 4686 2441968 2867961 29.785 34.985 213 39 39 8307 323973
+455	15791133 4686 2441968 2867961 29.785 34.985 213 38 38 8094 307572
+458	15795819 16096 2442532 2869227 29.792 35 782 0 0 0 0
+459	15811915 4686 2441965 2867958 29.785 34.985 213 41 41 8733 358053
+477	15816601 40 2459378 2869056 30 35 2 -1.1 -1.1 -2.2 2.42
+478	15816641 37 2459378 2869056 30 35 2 0 0.11 0.11 0.0121
+484	15816678 16096 2442534 2869229 29.792 35 782 0 0 0 0
+494	15832774 5481 2442298 2868328 29.791 34.991 261 1 1 261 261
+495	15838255 5742 2442329 2868329 29.791 34.991 261 18 18 4698 84564
+496	15843997 5302 2443459 2867843 29.803 34.983 241 18 18 4338 78084
+498	15849299 5784 2443459 2867843 29.803 34.983 241 1376 1616 360536 540528296
+502	15855083 40 2459379 2869057 30 35 2 -13 -11.3 -24.3 296.69
+503	15855123 40 2459379 2869057 30 35 2 0.34 0.45 0.79 0.3181
+504	15855163 5742 2442332 2868332 29.791 34.991 261 38 38 9918 376884
+505	15860905 5302 2443456 2867840 29.803 34.983 241 39 39 9399 366561
+506	15866207 5302 2443456 2867840 29.803 34.983 241 38 38 9158 348004
+507	15871509 5742 2442332 2868332 29.791 34.991 261 39 39 10179 396981
+508	15877251 11462 2442335 2868335 29.791 34.991 521 39 41 20839 834041
+509	15888713 53920 2442013 2869231 29.785 35 2614 0 0 0 0
+510	15942633 10762 2443206 2867837 29.801 34.983 501 0 41 9881 405121
+511	15953395 27101 2442357 2869104 29.791 35 1306 0 0 0 0
+528	15980496 40 2459380 2869058 30 35 2 -1.1 -1.1 -2.2 2.42
+529	15980536 37 2459380 2869058 30 35 2 0 0.11 0.11 0.0121
+535	15980573 16096 2442538 2869233 29.792 35 782 0 0 0 0
+545	15996669 6500 2442694 2868754 29.795 34.995 260 0.007 0.014 3.633 0.050813
+546	16003169 5460 2442694 2868754 29.795 34.995 260 1 1 260 260
+548	16008629 5720 2442693 2868753 29.795 34.995 260 18 18 4680 84240
+549	16014349 6240 2442693 2868753 29.795 34.995 260 1478 1737 417950 673319270
+554	16020589 40 2459381 2869059 30 35 2 -1.1 -1.1 -2.2 2.42
+555	16020629 37 2459381 2869059 30 35 2 0 0.11 0.11 0.0121
+557	16020666 5720 2442690 2868750 29.795 34.995 260 39 39 10140 395460
+558	16026386 5720 2442690 2868750 29.795 34.995 260 38 38 9880 375440
+561	16032106 16096 2442540 2869235 29.792 35 782 0 0 0 0
+562	16048202 5720 2442687 2868747 29.795 34.995 260 41 41 10660 437060
+571	16053922 5550 2442702 2868762 29.795 34.995 222 0.007 0.014 3.101 0.043365
+572	16059472 4662 2442702 2868762 29.795 34.995 222 1 1 222 222
+574	16064134 4884 2442701 2868761 29.795 34.995 222 18 18 3996 71928
+575	16069018 5328 2442701 2868761 29.795 34.995 222 1273 1494 307137 425835775
+580	16074346 40 2459382 2869060 30 35 2 -1.1 -1.1 -2.2 2.42
+581	16074386 37 2459382 2869060 30 35 2 0 0.11 0.11 0.0121
+583	16074423 4884 2442698 2868758 29.795 34.995 222 39 39 8658 337662
+584	16079307 4884 2442698 2868758 29.795 34.995 222 38 38 8436 320568
+587	16084191 16096 2442542 2869237 29.792 35 782 0 0 0 0
+588	16100287 4884 2442695 2868755 29.795 34.995 222 41 41 9102 373182
+597	16105171 4850 2442710 2868770 29.795 34.995 194 0.007 0.014 2.709 0.037877
+598	16110021 4074 2442710 2868770 29.795 34.995 194 1 1 194 194
+600	16114095 4268 2442709 2868769 29.795 34.995 194 18 18 3492 62856
+601	16118363 4656 2442709 2868769 29.795 34.995 194 1154 1347 242597 303975981
+606	16123019 40 2459383 2869061 30 35 2 -1.1 -1.1 -2.2 2.42
+607	16123059 37 2459383 2869061 30 35 2 0 0.11 0.11 0.0121
+609	16123096 4268 2442706 2868766 29.795 34.995 194 39 39 7566 295074
+610	16127364 4268 2442706 2868766 29.795 34.995 194 38 38 7372 280136
+613	16131632 16096 2442544 2869239 29.792 35 782 0 0 0 0
+614	16147728 4268 2442703 2868763 29.795 34.995 194 41 41 7954 326114
+632	16151996 40 2459384 2869062 30 35 2 -1.1 -1.1 -2.2 2.42
+633	16152036 37 2459384 2869062 30 35 2 0 0.11 0.11 0.0121
+639	16152073 16096 2442546 2869241 29.792 35 782 0 0 0 0
+649	16168169 17498 2441803 2868779 29.783 34.995 700 0.007 0.019 9.796 0.137236
+650	16185667 14698 2441803 2868779 29.783 34.995 700 1 1 700 700
+652	16200365 15376 2441986 2868778 29.785 34.995 699 18 18 12582 226476
+653	16215741 16798 2441802 2868778 29.783 34.995 700 3996 4695 3041850 13246942450
+658	16232539 40 2459385 2869063 30 35 2 -1.1 -1.1 -2.2 2.42
+659	16232579 37 2459385 2869063 30 35 2 0 0.11 0.11 0.0121
+661	16232616 15376 2441983 2868775 29.785 34.995 699 39 39 27261 1063179
+662	16247992 15376 2441983 2868775 29.785 34.995 699 38 38 26562 1009356
+665	16263368 16096 2442548 2869243 29.792 35 782 0 0 0 0
+666	16279464 15376 2441980 2868772 29.785 34.995 699 41 41 28659 1175019
+675	16294840 14723 2441811 2867988 29.783 34.985 589 0.007 0.019 8.249 0.115627
+676	16309563 12367 2441811 2867988 29.783 34.985 589 1 1 589 589
+678	16321930 12956 2441810 2867987 29.783 34.985 589 18 18 10602 190836
+679	16334886 14134 2441810 2867987 29.783 34.985 589 3367 3955 2156329 7911348459
+684	16349020 40 2459386 2869064 30 35 2 -1.1 -1.1 -2.2 2.42
+685	16349060 37 2459386 2869064 30 35 2 0 0.11 0.11 0.0121
+687	16349097 12956 2441807 2867984 29.783 34.985 589 39 39 22971 895869
+688	16362053 12956 2441807 2867984 29.783 34.985 589 38 38 22382 850516
+691	16375009 16096 2442550 2869245 29.792 35 782 0 0 0 0
+692	16391105 12956 2441804 2867981 29.783 34.985 589 41 41 24149 990109
+701	16404061 11825 2441819 2868788 29.783 34.995 473 0.007 0.014 6.615 0.092561000000001
+702	16415886 9933 2441819 2868788 29.783 34.995 473 1 1 473 473
+704	16425819 10406 2441818 2868787 29.783 34.995 473 18 18 8514 153252
+705	16436225 11352 2441818 2868787 29.783 34.995 473 2680 3152 1379268 4030764100
+710	16447577 40 2459387 2869065 30 35 2 -1.1 -1.1 -2.2 2.42
+711	16447617 37 2459387 2869065 30 35 2 0 0.11 0.11 0.0121
+713	16447654 10406 2441815 2868784 29.783 34.995 473 39 39 18447 719433
+714	16458060 10406 2441815 2868784 29.783 34.995 473 38 38 17974 683012
+717	16468466 16096 2442552 2869247 29.792 35 782 0 0 0 0
+718	16484562 10406 2441812 2868781 29.783 34.995 473 41 41 19393 795113
+727	16494968 25 2468982 2468982 30.115 30.115 1 0.014 0.014 0.014 0.000196
+728	16494993 21 2468982 2468982 30.115 30.115 1 1 1 1 1
+730	16495014 22 2468981 2468981 30.115 30.115 1 18 18 18 324
+731	16495036 21 2468981 2468981 30.115 30.115 1 8 8 8 64
+736	16495057 40 2459388 2869066 30 35 2 -1.1 -1.1 -2.2 2.42
+737	16495097 37 2459388 2869066 30 35 2 0 0.11 0.11 0.0121
+739	16495134 22 2468978 2468978 30.115 30.115 1 39 39 39 1521
+740	16495156 22 2468978 2468978 30.115 30.115 1 38 38 38 1444
+743	16495178 16096 2442554 2869249 29.792 35 782 0 0 0 0
+744	16511274 22 2468975 2468975 30.115 30.115 1 41 41 41 1681
+753	16511296 5481 2442182 2868242 29.789 34.989 261 1 1 261 261
+754	16516777 5742 2442183 2868243 29.789 34.989 261 18 18 4698 84564
+755	16522519 6620 2442004 2867997 29.785 34.985 301 18 18 5418 97524
+757	16529139 7222 2442004 2867997 29.785 34.985 301 1718 2018 562268 1052589174
+761	16536361 40 2459389 2869067 30 35 2 -13 -11.3 -24.3 296.69
+762	16536401 40 2459389 2869067 30 35 2 0.34 0.45 0.79 0.3181
+763	16536441 5742 2442186 2868246 29.789 34.989 261 38 38 9918 376884
+764	16542183 6620 2442001 2867994 29.785 34.985 301 39 39 11739 457821
+765	16548803 6620 2442001 2867994 29.785 34.985 301 38 38 11438 434644
+766	16555423 5742 2442186 2868246 29.789 34.989 261 39 39 10179 396981
+767	16561165 11484 2442189 2869030 29.789 34.999 522 39 41 20880 835722
+768	16572649 54789 2441835 2868965 29.783 34.998 2609 0 0 0 0
+769	16627438 12101 2441998 2869026 29.785 34.999 562 0 41 12341 505981
+770	16639539 27405 2442218 2869036 29.789 34.999 1305 0 0 0 0
+778	16666944 6525 2442751 2868798 29.795 34.995 261 0.007 0.014 3.647 0.051009
+779	16673469 5481 2442751 2868798 29.795 34.995 261 1 1 261 261
+781	16678950 5742 2442750 2868797 29.795 34.995 261 18 18 4698 84564
+782	16684692 6264 2442750 2868797 29.795 34.995 261 1489 1749 422559 685604631
+787	16690956 40 2459390 2869068 30 35 2 -1.1 -1.1 -2.2 2.42
+788	16690996 37 2459390 2869068 30 35 2 0 0.11 0.11 0.0121
+790	16691033 5742 2442747 2868794 29.795 34.995 261 39 39 10179 396981
+791	16696775 5742 2442747 2868794 29.795 34.995 261 38 38 9918 376884
+794	16702517 16096 2442558 2869251 29.792 35 782 0 0 0 0
+795	16718613 5742 2442744 2868791 29.795 34.995 261 41 41 10701 438741
+813	16724355 40 2459391 2869069 30 35 2 -1.1 -1.1 -2.2 2.42
+814	16724395 37 2459391 2869069 30 35 2 0 0.11 0.11 0.0121
+820	16724432 16096 2442560 2869253 29.792 35 782 0 0 0 0
+839	16740528 40 2459392 2869070 30 35 2 -1.1 -1.1 -2.2 2.42
+840	16740568 37 2459392 2869070 30 35 2 0 0.11 0.11 0.0121
+846	16740605 16096 2442562 2869255 29.792 35 782 0 0 0 0
+856	16756701 14075 2441832 2868808 29.783 34.995 563 0.007 0.014 7.868 0.110054
+857	16770776 11823 2441832 2868808 29.783 34.995 563 1 1 563 563
+859	16782599 12386 2441831 2868807 29.783 34.995 563 18 18 10134 182412
+860	16794985 13512 2441831 2868807 29.783 34.995 563 3272 3834 2000339 7122075549
+865	16808497 40 2459393 2869071 30 35 2 -1.1 -1.1 -2.2 2.42
+866	16808537 37 2459393 2869071 30 35 2 0 0.11 0.11 0.0121
+868	16808574 12386 2441828 2868804 29.783 34.995 563 39 39 21957 856323
+869	16820960 12386 2441828 2868804 29.783 34.995 563 38 38 21394 812972
+872	16833346 16096 2442564 2869257 29.792 35 782 0 0 0 0
+873	16849442 12386 2441825 2868801 29.783 34.995 563 41 41 23083 946403

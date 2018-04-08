@@ -1,0 +1,175 @@
+[General]
+image-path=../../images
+parallel-simulation = false
+tkenv-plugin-path = ../../../inet/etc/plugins
+output-scalar-file-append = false
+debug-on-errors = false
+tkenv-default-config = 
+sim-time-limit=35s
+warmup-period=0s
+repeat = 4
+**.routingRecorder.enabled = false
+
+############### Statistics ##################
+output-scalar-file = ${resultdir}/${configname}/${repetition}.sca
+output-vector-file = ${resultdir}/${configname}/${repetition}.vec
+#seed-set = ${repetition}
+seed-1-mt = ${53542, 45732, 47853, 33434 ! repetition}
+seed-2-mt = ${75335, 35463, 24674, 56673 ! repetition}
+seed-3-mt = ${34542, 67563, 96433, 23567 ! repetition}
+**.vector-recording = true
+
+################ Channel parameters #####################
+**.channelControl.pMax = 10W
+**.channelControl.alpha = 1.0
+**.channelControl.carrierFrequency = 2100e+6Hz
+
+################ Mobility parameters #####################
+**.mobility.constraintAreaMinZ = 0m
+**.mobility.constraintAreaMaxZ = 0m
+
+################# Deployer parameters #######################
+# UEs attached to eNB
+**.fbDelay = 1
+
+############### AMC MODULE PARAMETERS ###############
+**.rbAllocationType = "localized"
+**.deployer.numRbDl = 50
+**.deployer.numRbUl = 50
+**.numBands = 50
+
+
+##########################################################   
+############### Config "D2DMulticast-1toM" ###############
+##########################################################
+# In this configuration, a transmitting UE sends periodic alert messages to "numUEs" users. 
+# UEs are randomly deployed within the cell served by the eNodeB 
+
+[Config D2DMulticast-1toM]
+network=lte.simulations.networks.SingleCell_D2DMulticast
+
+### eNodeBs configuration ###
+*.eNodeB.mobility.initFromDisplayString = false
+*.eNodeB.mobility.initialX = 300m
+*.eNodeB.mobility.initialY = 300m
+
+### UEs configuration ###
+*.numUeCell = 0
+*.numUeD2D = ${numUEs=30}
+
+*.ue*[*].macCellId = 1
+*.ue*[*].masterId = 1
+*.ue*[*].mobility.initFromDisplayString = false
+
+*.ue*[*].mobility.initialX = uniform(100m,800m)
+*.ue*[*].mobility.initialY = uniform(100m,800m)
+
+### Traffic configuration ###
+*.ueD2D[*].numUdpApps = 1
+
+# One-to-Many traffic between UEs
+# Transmitter
+	#UEs 0, 1, 2 and 3 are configured as transmitters when D2D is choosen
+#*.ueD2D[2].udpApp[*].typename = "AlertSender"
+#*.ueD2D[2].udpApp[*].localPort = 3088+ancestorIndex(0) 
+#*.ueD2D[2].udpApp[*].startTime = uniform(0s,0.02s)
+#*.ueD2D[2].udpApp[*].destAddress = "224.0.0.10"          # IP address of the multicast group 
+#*.ueD2D[2].udpApp[*].destPort = 1000
+*.ueD2D[8].udpApp[*].typename = "AlertSender"
+*.ueD2D[8].udpApp[*].localPort = 3088+ancestorIndex(0) 
+*.ueD2D[8].udpApp[*].startTime = uniform(0s,0.02s)
+*.ueD2D[8].udpApp[*].destAddress = "224.0.0.10"          # IP address of the multicast group 
+*.ueD2D[8].udpApp[*].destPort = 1000
+*.ueD2D[15].udpApp[*].typename = "AlertSender"
+*.ueD2D[15].udpApp[*].localPort = 3088+ancestorIndex(0) 
+*.ueD2D[15].udpApp[*].startTime = uniform(0s,0.02s)
+*.ueD2D[15].udpApp[*].destAddress = "224.0.0.10"          # IP address of the multicast group 
+*.ueD2D[15].udpApp[*].destPort = 1000
+*.ueD2D[25].udpApp[*].typename = "AlertSender"
+*.ueD2D[25].udpApp[*].localPort = 3088+ancestorIndex(0) 
+*.ueD2D[25].udpApp[*].startTime = uniform(0s,0.02s)
+*.ueD2D[25].udpApp[*].destAddress = "224.0.0.10"          # IP address of the multicast group 
+*.ueD2D[25].udpApp[*].destPort = 1000
+
+# Receivers (they must belong to the above multicast group (see demo.xml)
+	#UEs from 4 to 9 are configured as receivers when D2D is choosen
+*.ueD2D[0..2].udpApp[*].typename = "AlertReceiver"
+*.ueD2D[0..2].udpApp[*].localPort = 1000
+*.ueD2D[3..7].udpApp[*].typename = "AlertReceiver"
+*.ueD2D[3..7].udpApp[*].localPort = 1000
+*.ueD2D[9..14].udpApp[*].typename = "AlertReceiver"
+*.ueD2D[9..14].udpApp[*].localPort = 1000
+*.ueD2D[16..24].udpApp[*].typename = "AlertReceiver"
+*.ueD2D[16..24].udpApp[*].localPort = 1000
+*.ueD2D[26..29].udpApp[*].typename = "AlertReceiver"
+*.ueD2D[26..29].udpApp[*].localPort = 1000
+
+# Enable D2D for the eNodeB and the UEs involved in direct communications
+*.eNodeB.d2dCapable = true
+*.ueD2D[*].d2dCapable = true
+**.amcMode = "D2D"
+
+# --- Select CQI for D2D transmissions --- #
+# One-to-Many communications work with fixed CQI values only.
+# Set the parameter **.usePreconfiguredTxParams and select the desired CQI using the parameter **.d2dCqi
+**.usePreconfiguredTxParams = true
+#**.d2dCqi = ${cqi=3,5,7,9,11,13,15}
+**.d2dCqi = ${cqi=3}
+
+### PhyLayer parameters ###
+**.nic.phy.channelModel=xmldoc("config_channel_nofadshad.xml")
+**.feedbackComputation = xmldoc("config_channel_nofadshad.xml")
+
+output-scalar-file = ${resultdir}/${configname}/cqi=${cqi}-${repetition}.sca
+output-vector-file = ${resultdir}/${configname}/cqi=${cqi}-${repetition}.vec
+
+############### Set power consumption ###############
+*.ueD2D[*].energyConsumerType = "AlternatingEnergyConsumerSimuLTE"				# Consumption values refered to (Huang, 2013)
+*.ueD2D[*].energyConsumer.powerConsumption = 110mW								# 110mW consumption for listening devices.
+*.ueD2D[*].energyConsumer.consumptionInterval = 2s								# Energy consumption interval to consume energy
+*.ueD2D[*].energyConsumer.sleepInterval = 5s									# Interval not consuming energy
+#*.ueD2D[2].energyConsumer.transmittingPowerConsumption = 340mW				# Value to transmitt = 450mW-110mW(value using to listen)=310mW
+*.ueD2D[8].energyConsumer.transmittingPowerConsumption = 340mW	
+*.ueD2D[15].energyConsumer.transmittingPowerConsumption = 340mW	
+*.ueD2D[25].energyConsumer.transmittingPowerConsumption = 340mW	
+*.ueD2D[0..2].energyConsumer.transmittingPowerConsumption = 0mW					# nodes 4 to 9 isn't transmitting, so value is 0mW.
+*.ueD2D[3..7].energyConsumer.transmittingPowerConsumption = 0mW
+*.ueD2D[9..14].energyConsumer.transmittingPowerConsumption = 0mW
+*.ueD2D[16..24].energyConsumer.transmittingPowerConsumption = 0mW
+*.ueD2D[26..29].energyConsumer.transmittingPowerConsumption = 0mW
+
+*.ueD2D[*].energyStorageType = "IdealEnergyStorage"	
+#*.ueD2D[*].energyStorageType = "SimpleEnergyStorage"		
+#*.ueD2D[2].energyStorage.nominalCapacity = 1J  								# The maximum amount of energy stored in a device.
+#*.ueD2D[2].energyStorage.nodeStartCapacity = 1J 								# Energy device begins simulation.
+#*.ueD2D[8].energyStorage.nominalCapacity = 1J
+#*.ueD2D[8].energyStorage.nodeStartCapacity = 1J
+#*.ueD2D[15].energyStorage.nominalCapacity = 1J
+#*.ueD2D[15].energyStorage.nodeStartCapacity = 1J
+#*.ueD2D[25].energyStorage.nominalCapacity = 1J
+#*.ueD2D[25].energyStorage.nodeStartCapacity = 1J
+
+##*.ueD2D[*].energyStorage.initialCapacity = uniform(0J, this.nodeStartCapacity) # The initially stored amount of energy. Default value is nominalCapacity 
+#*.ueD2D[*].energyStorage.printCapacityStep = (0.01 * this.nominalCapacity) 		# Displays residual capacity changes in the log. Default is 0.01 * nominalCapacity.
+#
+##*.ueD2D[2].energyStorage.nodeShutdownCapacity = 0J							# Energy level for relaying device to stop being in the simulation.
+##*.ueD2D[8].energyStorage.nodeShutdownCapacity = 0J
+##*.ueD2D[15].energyStorage.nodeShutdownCapacity = 0J
+##*.ueD2D[25].energyStorage.nodeShutdownCapacity = 0J
+#*.ueD2D[0..1].energyStorage.nodeShutdownCapacity = 0J							# Energy level for non-relaying device to stop being in the simulation.
+#*.ueD2D[3..7].energyStorage.nodeShutdownCapacity = 0J	
+#*.ueD2D[9..14].energyStorage.nodeShutdownCapacity = 0J	
+#*.ueD2D[16..24].energyStorage.nodeShutdownCapacity = 0J	
+#*.ueD2D[26..29].energyStorage.nodeShutdownCapacity = 0J	
+#
+#*.ueD2D[0..1].energyStorage.nominalCapacity = 1J
+#*.ueD2D[3..7].energyStorage.nominalCapacity = 1J
+#*.ueD2D[9..14].energyStorage.nominalCapacity = 1J
+#*.ueD2D[16..24].energyStorage.nominalCapacity = 1J
+#*.ueD2D[26..29].energyStorage.nominalCapacity = 1J
+#*.ueD2D[0..1].energyStorage.nodeStartCapacity = 1J
+#*.ueD2D[3..7].energyStorage.nodeStartCapacity = 1J
+#*.ueD2D[9..14].energyStorage.nodeStartCapacity = 1J
+#*.ueD2D[16..24].energyStorage.nodeStartCapacity = 1J
+#*.ueD2D[26..29].energyStorage.nodeStartCapacity = 1J
+*.ueD2D[*].hasStatus = true

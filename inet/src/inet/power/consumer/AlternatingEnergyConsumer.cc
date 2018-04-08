@@ -16,7 +16,6 @@
 //
 
 #include "inet/power/consumer/AlternatingEnergyConsumer.h"
-//#include "LteCommon.h"
 
 namespace inet {
 
